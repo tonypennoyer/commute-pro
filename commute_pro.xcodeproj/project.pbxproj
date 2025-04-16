@@ -1,0 +1,637 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ACDEEB2F2DAF49C900001A20 /* commute_proApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB2E2DAF49C900001A20 /* commute_proApp.swift */; };
+		ACDEEB312DAF49C900001A20 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB302DAF49C900001A20 /* ContentView.swift */; };
+		ACDEEB332DAF49CA00001A20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACDEEB322DAF49CA00001A20 /* Assets.xcassets */; };
+		ACDEEB362DAF49CA00001A20 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACDEEB352DAF49CA00001A20 /* Preview Assets.xcassets */; };
+		ACDEEB382DAF49CA00001A20 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB372DAF49CA00001A20 /* Persistence.swift */; };
+		ACDEEB3B2DAF49CA00001A20 /* commute_pro.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB392DAF49CA00001A20 /* commute_pro.xcdatamodeld */; };
+		ACDEEB472DAF49CA00001A20 /* commute_proTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB462DAF49CA00001A20 /* commute_proTests.swift */; };
+		ACDEEB522DAF49CA00001A20 /* commute_proUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB512DAF49CA00001A20 /* commute_proUITests.swift */; };
+		ACDEEB632DAF4A8500001A20 /* CommuteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB622DAF4A8500001A20 /* CommuteListView.swift */; };
+		ACDEEB692DAF4BDF00001A20 /* db.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB672DAF4BDF00001A20 /* db.xcdatamodeld */; };
+		ACDEEB762DAF4C3000001A20 /* CommuteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB752DAF4C3000001A20 /* CommuteDetailView.swift */; };
+		ACDEEB7B2DAF4C4800001A20 /* CommuteMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB7A2DAF4C4800001A20 /* CommuteMode.swift */; };
+		ACDEEB802DAF4C6000001A20 /* CommuteTimeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB7F2DAF4C6000001A20 /* CommuteTimeApp.swift */; };
+		ACDEEB912DAF4CD100001A20 /* NewCommuteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB902DAF4CD100001A20 /* NewCommuteView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ACDEEB432DAF49CA00001A20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ACDEEB232DAF49C900001A20 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ACDEEB2A2DAF49C900001A20;
+			remoteInfo = commute_pro;
+		};
+		ACDEEB4E2DAF49CA00001A20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ACDEEB232DAF49C900001A20 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ACDEEB2A2DAF49C900001A20;
+			remoteInfo = commute_pro;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		ACDEEB2B2DAF49C900001A20 /* commute_pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = commute_pro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACDEEB2E2DAF49C900001A20 /* commute_proApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commute_proApp.swift; sourceTree = "<group>"; };
+		ACDEEB302DAF49C900001A20 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		ACDEEB322DAF49CA00001A20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ACDEEB352DAF49CA00001A20 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		ACDEEB372DAF49CA00001A20 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		ACDEEB3A2DAF49CA00001A20 /* commute_pro.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = commute_pro.xcdatamodel; sourceTree = "<group>"; };
+		ACDEEB3C2DAF49CA00001A20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACDEEB3D2DAF49CA00001A20 /* commute_pro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = commute_pro.entitlements; sourceTree = "<group>"; };
+		ACDEEB422DAF49CA00001A20 /* commute_proTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = commute_proTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACDEEB462DAF49CA00001A20 /* commute_proTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commute_proTests.swift; sourceTree = "<group>"; };
+		ACDEEB482DAF49CA00001A20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACDEEB4D2DAF49CA00001A20 /* commute_proUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = commute_proUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACDEEB512DAF49CA00001A20 /* commute_proUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commute_proUITests.swift; sourceTree = "<group>"; };
+		ACDEEB532DAF49CA00001A20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACDEEB622DAF4A8500001A20 /* CommuteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteListView.swift; sourceTree = "<group>"; };
+		ACDEEB682DAF4BDF00001A20 /* xcdatamodeld.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = xcdatamodeld.xcdatamodel; sourceTree = "<group>"; };
+		ACDEEB752DAF4C3000001A20 /* CommuteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteDetailView.swift; sourceTree = "<group>"; };
+		ACDEEB7A2DAF4C4800001A20 /* CommuteMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteMode.swift; sourceTree = "<group>"; };
+		ACDEEB7F2DAF4C6000001A20 /* CommuteTimeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteTimeApp.swift; sourceTree = "<group>"; };
+		ACDEEB902DAF4CD100001A20 /* NewCommuteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommuteView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ACDEEB282DAF49C900001A20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACDEEB3F2DAF49CA00001A20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACDEEB4A2DAF49CA00001A20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ACDEEB222DAF49C900001A20 = {
+			isa = PBXGroup;
+			children = (
+				ACDEEB2D2DAF49C900001A20 /* commute_pro */,
+				ACDEEB452DAF49CA00001A20 /* commute_proTests */,
+				ACDEEB502DAF49CA00001A20 /* commute_proUITests */,
+				ACDEEB2C2DAF49C900001A20 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ACDEEB2C2DAF49C900001A20 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ACDEEB2B2DAF49C900001A20 /* commute_pro.app */,
+				ACDEEB422DAF49CA00001A20 /* commute_proTests.xctest */,
+				ACDEEB4D2DAF49CA00001A20 /* commute_proUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ACDEEB2D2DAF49C900001A20 /* commute_pro */ = {
+			isa = PBXGroup;
+			children = (
+				ACDEEB2E2DAF49C900001A20 /* commute_proApp.swift */,
+				ACDEEB302DAF49C900001A20 /* ContentView.swift */,
+				ACDEEB322DAF49CA00001A20 /* Assets.xcassets */,
+				ACDEEB372DAF49CA00001A20 /* Persistence.swift */,
+				ACDEEB3C2DAF49CA00001A20 /* Info.plist */,
+				ACDEEB3D2DAF49CA00001A20 /* commute_pro.entitlements */,
+				ACDEEB392DAF49CA00001A20 /* commute_pro.xcdatamodeld */,
+				ACDEEB342DAF49CA00001A20 /* Preview Content */,
+				ACDEEB622DAF4A8500001A20 /* CommuteListView.swift */,
+				ACDEEB672DAF4BDF00001A20 /* db.xcdatamodeld */,
+				ACDEEB752DAF4C3000001A20 /* CommuteDetailView.swift */,
+				ACDEEB7A2DAF4C4800001A20 /* CommuteMode.swift */,
+				ACDEEB7F2DAF4C6000001A20 /* CommuteTimeApp.swift */,
+				ACDEEB902DAF4CD100001A20 /* NewCommuteView.swift */,
+			);
+			path = commute_pro;
+			sourceTree = "<group>";
+		};
+		ACDEEB342DAF49CA00001A20 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				ACDEEB352DAF49CA00001A20 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		ACDEEB452DAF49CA00001A20 /* commute_proTests */ = {
+			isa = PBXGroup;
+			children = (
+				ACDEEB462DAF49CA00001A20 /* commute_proTests.swift */,
+				ACDEEB482DAF49CA00001A20 /* Info.plist */,
+			);
+			path = commute_proTests;
+			sourceTree = "<group>";
+		};
+		ACDEEB502DAF49CA00001A20 /* commute_proUITests */ = {
+			isa = PBXGroup;
+			children = (
+				ACDEEB512DAF49CA00001A20 /* commute_proUITests.swift */,
+				ACDEEB532DAF49CA00001A20 /* Info.plist */,
+			);
+			path = commute_proUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ACDEEB2A2DAF49C900001A20 /* commute_pro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACDEEB562DAF49CA00001A20 /* Build configuration list for PBXNativeTarget "commute_pro" */;
+			buildPhases = (
+				ACDEEB272DAF49C900001A20 /* Sources */,
+				ACDEEB282DAF49C900001A20 /* Frameworks */,
+				ACDEEB292DAF49C900001A20 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = commute_pro;
+			productName = commute_pro;
+			productReference = ACDEEB2B2DAF49C900001A20 /* commute_pro.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ACDEEB412DAF49CA00001A20 /* commute_proTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACDEEB592DAF49CA00001A20 /* Build configuration list for PBXNativeTarget "commute_proTests" */;
+			buildPhases = (
+				ACDEEB3E2DAF49CA00001A20 /* Sources */,
+				ACDEEB3F2DAF49CA00001A20 /* Frameworks */,
+				ACDEEB402DAF49CA00001A20 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ACDEEB442DAF49CA00001A20 /* PBXTargetDependency */,
+			);
+			name = commute_proTests;
+			productName = commute_proTests;
+			productReference = ACDEEB422DAF49CA00001A20 /* commute_proTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ACDEEB4C2DAF49CA00001A20 /* commute_proUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACDEEB5C2DAF49CA00001A20 /* Build configuration list for PBXNativeTarget "commute_proUITests" */;
+			buildPhases = (
+				ACDEEB492DAF49CA00001A20 /* Sources */,
+				ACDEEB4A2DAF49CA00001A20 /* Frameworks */,
+				ACDEEB4B2DAF49CA00001A20 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ACDEEB4F2DAF49CA00001A20 /* PBXTargetDependency */,
+			);
+			name = commute_proUITests;
+			productName = commute_proUITests;
+			productReference = ACDEEB4D2DAF49CA00001A20 /* commute_proUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ACDEEB232DAF49C900001A20 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					ACDEEB2A2DAF49C900001A20 = {
+						CreatedOnToolsVersion = 12.3;
+					};
+					ACDEEB412DAF49CA00001A20 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = ACDEEB2A2DAF49C900001A20;
+					};
+					ACDEEB4C2DAF49CA00001A20 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = ACDEEB2A2DAF49C900001A20;
+					};
+				};
+			};
+			buildConfigurationList = ACDEEB262DAF49C900001A20 /* Build configuration list for PBXProject "commute_pro" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ACDEEB222DAF49C900001A20;
+			productRefGroup = ACDEEB2C2DAF49C900001A20 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ACDEEB2A2DAF49C900001A20 /* commute_pro */,
+				ACDEEB412DAF49CA00001A20 /* commute_proTests */,
+				ACDEEB4C2DAF49CA00001A20 /* commute_proUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ACDEEB292DAF49C900001A20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACDEEB362DAF49CA00001A20 /* Preview Assets.xcassets in Resources */,
+				ACDEEB332DAF49CA00001A20 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACDEEB402DAF49CA00001A20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACDEEB4B2DAF49CA00001A20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ACDEEB272DAF49C900001A20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACDEEB632DAF4A8500001A20 /* CommuteListView.swift in Sources */,
+				ACDEEB7B2DAF4C4800001A20 /* CommuteMode.swift in Sources */,
+				ACDEEB382DAF49CA00001A20 /* Persistence.swift in Sources */,
+				ACDEEB312DAF49C900001A20 /* ContentView.swift in Sources */,
+				ACDEEB802DAF4C6000001A20 /* CommuteTimeApp.swift in Sources */,
+				ACDEEB762DAF4C3000001A20 /* CommuteDetailView.swift in Sources */,
+				ACDEEB3B2DAF49CA00001A20 /* commute_pro.xcdatamodeld in Sources */,
+				ACDEEB2F2DAF49C900001A20 /* commute_proApp.swift in Sources */,
+				ACDEEB912DAF4CD100001A20 /* NewCommuteView.swift in Sources */,
+				ACDEEB692DAF4BDF00001A20 /* db.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACDEEB3E2DAF49CA00001A20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACDEEB472DAF49CA00001A20 /* commute_proTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACDEEB492DAF49CA00001A20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACDEEB522DAF49CA00001A20 /* commute_proUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ACDEEB442DAF49CA00001A20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ACDEEB2A2DAF49C900001A20 /* commute_pro */;
+			targetProxy = ACDEEB432DAF49CA00001A20 /* PBXContainerItemProxy */;
+		};
+		ACDEEB4F2DAF49CA00001A20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ACDEEB2A2DAF49C900001A20 /* commute_pro */;
+			targetProxy = ACDEEB4E2DAF49CA00001A20 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		ACDEEB542DAF49CA00001A20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ACDEEB552DAF49CA00001A20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		ACDEEB572DAF49CA00001A20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = commute_pro/commute_pro.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"commute_pro/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = commute_pro/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "commute-pro.commute-pro";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		ACDEEB582DAF49CA00001A20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = commute_pro/commute_pro.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"commute_pro/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = commute_pro/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "commute-pro.commute-pro";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		ACDEEB5A2DAF49CA00001A20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = commute_proTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "commute-pro.commute-proTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/commute_pro.app/Contents/MacOS/commute_pro";
+			};
+			name = Debug;
+		};
+		ACDEEB5B2DAF49CA00001A20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = commute_proTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "commute-pro.commute-proTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/commute_pro.app/Contents/MacOS/commute_pro";
+			};
+			name = Release;
+		};
+		ACDEEB5D2DAF49CA00001A20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = commute_proUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "commute-pro.commute-proUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = commute_pro;
+			};
+			name = Debug;
+		};
+		ACDEEB5E2DAF49CA00001A20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = commute_proUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "commute-pro.commute-proUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = commute_pro;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ACDEEB262DAF49C900001A20 /* Build configuration list for PBXProject "commute_pro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACDEEB542DAF49CA00001A20 /* Debug */,
+				ACDEEB552DAF49CA00001A20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACDEEB562DAF49CA00001A20 /* Build configuration list for PBXNativeTarget "commute_pro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACDEEB572DAF49CA00001A20 /* Debug */,
+				ACDEEB582DAF49CA00001A20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACDEEB592DAF49CA00001A20 /* Build configuration list for PBXNativeTarget "commute_proTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACDEEB5A2DAF49CA00001A20 /* Debug */,
+				ACDEEB5B2DAF49CA00001A20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACDEEB5C2DAF49CA00001A20 /* Build configuration list for PBXNativeTarget "commute_proUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACDEEB5D2DAF49CA00001A20 /* Debug */,
+				ACDEEB5E2DAF49CA00001A20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		ACDEEB392DAF49CA00001A20 /* commute_pro.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				ACDEEB3A2DAF49CA00001A20 /* commute_pro.xcdatamodel */,
+			);
+			currentVersion = ACDEEB3A2DAF49CA00001A20 /* commute_pro.xcdatamodel */;
+			path = commute_pro.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		ACDEEB672DAF4BDF00001A20 /* db.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				ACDEEB682DAF4BDF00001A20 /* xcdatamodeld.xcdatamodel */,
+			);
+			currentVersion = ACDEEB682DAF4BDF00001A20 /* xcdatamodeld.xcdatamodel */;
+			path = db.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = ACDEEB232DAF49C900001A20 /* Project object */;
+}

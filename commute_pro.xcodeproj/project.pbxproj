@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		ACDEEB2F2DAF49C900001A20 /* commute_proApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB2E2DAF49C900001A20 /* commute_proApp.swift */; };
-		ACDEEB312DAF49C900001A20 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB302DAF49C900001A20 /* ContentView.swift */; };
 		ACDEEB332DAF49CA00001A20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACDEEB322DAF49CA00001A20 /* Assets.xcassets */; };
 		ACDEEB362DAF49CA00001A20 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACDEEB352DAF49CA00001A20 /* Preview Assets.xcassets */; };
 		ACDEEB382DAF49CA00001A20 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB372DAF49CA00001A20 /* Persistence.swift */; };
@@ -16,7 +15,6 @@
 		ACDEEB472DAF49CA00001A20 /* commute_proTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB462DAF49CA00001A20 /* commute_proTests.swift */; };
 		ACDEEB522DAF49CA00001A20 /* commute_proUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB512DAF49CA00001A20 /* commute_proUITests.swift */; };
 		ACDEEB632DAF4A8500001A20 /* CommuteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB622DAF4A8500001A20 /* CommuteListView.swift */; };
-		ACDEEB692DAF4BDF00001A20 /* db.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB672DAF4BDF00001A20 /* db.xcdatamodeld */; };
 		ACDEEB762DAF4C3000001A20 /* CommuteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB752DAF4C3000001A20 /* CommuteDetailView.swift */; };
 		ACDEEB7B2DAF4C4800001A20 /* CommuteMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB7A2DAF4C4800001A20 /* CommuteMode.swift */; };
 		ACDEEB802DAF4C6000001A20 /* CommuteTimeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB7F2DAF4C6000001A20 /* CommuteTimeApp.swift */; };
@@ -43,7 +41,6 @@
 /* Begin PBXFileReference section */
 		ACDEEB2B2DAF49C900001A20 /* commute_pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = commute_pro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACDEEB2E2DAF49C900001A20 /* commute_proApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commute_proApp.swift; sourceTree = "<group>"; };
-		ACDEEB302DAF49C900001A20 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		ACDEEB322DAF49CA00001A20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACDEEB352DAF49CA00001A20 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		ACDEEB372DAF49CA00001A20 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -57,7 +54,6 @@
 		ACDEEB512DAF49CA00001A20 /* commute_proUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commute_proUITests.swift; sourceTree = "<group>"; };
 		ACDEEB532DAF49CA00001A20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACDEEB622DAF4A8500001A20 /* CommuteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteListView.swift; sourceTree = "<group>"; };
-		ACDEEB682DAF4BDF00001A20 /* xcdatamodeld.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = xcdatamodeld.xcdatamodel; sourceTree = "<group>"; };
 		ACDEEB752DAF4C3000001A20 /* CommuteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteDetailView.swift; sourceTree = "<group>"; };
 		ACDEEB7A2DAF4C4800001A20 /* CommuteMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteMode.swift; sourceTree = "<group>"; };
 		ACDEEB7F2DAF4C6000001A20 /* CommuteTimeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteTimeApp.swift; sourceTree = "<group>"; };
@@ -113,7 +109,6 @@
 			isa = PBXGroup;
 			children = (
 				ACDEEB2E2DAF49C900001A20 /* commute_proApp.swift */,
-				ACDEEB302DAF49C900001A20 /* ContentView.swift */,
 				ACDEEB322DAF49CA00001A20 /* Assets.xcassets */,
 				ACDEEB372DAF49CA00001A20 /* Persistence.swift */,
 				ACDEEB3C2DAF49CA00001A20 /* Info.plist */,
@@ -121,7 +116,6 @@
 				ACDEEB392DAF49CA00001A20 /* commute_pro.xcdatamodeld */,
 				ACDEEB342DAF49CA00001A20 /* Preview Content */,
 				ACDEEB622DAF4A8500001A20 /* CommuteListView.swift */,
-				ACDEEB672DAF4BDF00001A20 /* db.xcdatamodeld */,
 				ACDEEB752DAF4C3000001A20 /* CommuteDetailView.swift */,
 				ACDEEB7A2DAF4C4800001A20 /* CommuteMode.swift */,
 				ACDEEB7F2DAF4C6000001A20 /* CommuteTimeApp.swift */,
@@ -288,13 +282,11 @@
 				ACDEEB632DAF4A8500001A20 /* CommuteListView.swift in Sources */,
 				ACDEEB7B2DAF4C4800001A20 /* CommuteMode.swift in Sources */,
 				ACDEEB382DAF49CA00001A20 /* Persistence.swift in Sources */,
-				ACDEEB312DAF49C900001A20 /* ContentView.swift in Sources */,
 				ACDEEB802DAF4C6000001A20 /* CommuteTimeApp.swift in Sources */,
 				ACDEEB762DAF4C3000001A20 /* CommuteDetailView.swift in Sources */,
 				ACDEEB3B2DAF49CA00001A20 /* commute_pro.xcdatamodeld in Sources */,
 				ACDEEB2F2DAF49C900001A20 /* commute_proApp.swift in Sources */,
 				ACDEEB912DAF4CD100001A20 /* NewCommuteView.swift in Sources */,
-				ACDEEB692DAF4BDF00001A20 /* db.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,16 +610,6 @@
 			);
 			currentVersion = ACDEEB3A2DAF49CA00001A20 /* commute_pro.xcdatamodel */;
 			path = commute_pro.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		ACDEEB672DAF4BDF00001A20 /* db.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				ACDEEB682DAF4BDF00001A20 /* xcdatamodeld.xcdatamodel */,
-			);
-			currentVersion = ACDEEB682DAF4BDF00001A20 /* xcdatamodeld.xcdatamodel */;
-			path = db.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

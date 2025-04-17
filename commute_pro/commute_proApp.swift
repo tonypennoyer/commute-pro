@@ -13,7 +13,7 @@ struct commute_proApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CommuteListView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

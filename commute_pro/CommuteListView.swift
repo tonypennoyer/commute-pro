@@ -27,7 +27,7 @@ struct CommuteListView: View {
             }
             .navigationTitle("My Commutes")
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .primaryAction) {
                     Button(action: { showingNewCommute = true }) {
                         Label("Add Commute", systemImage: "plus")
                     }

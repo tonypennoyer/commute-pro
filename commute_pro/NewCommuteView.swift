@@ -23,7 +23,6 @@ struct NewCommuteView: View {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
                         let newCommute = Commute(context: viewContext)
-                        newCommute.id = UUID()
                         newCommute.name = name
                         newCommute.mode = mode.rawValue
                         try? viewContext.save()

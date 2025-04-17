@@ -23,6 +23,8 @@
 		ACBA1C072DB08A1F0026CF49 /* NewCommuteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB902DAF4CD100001A20 /* NewCommuteView.swift */; };
 		ACBA1C0A2DB08C510026CF49 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA1C092DB08C510026CF49 /* Persistence.swift */; };
 		ACBA1C0C2DB08C950026CF49 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA1C0B2DB08C950026CF49 /* Persistence.swift */; };
+		ACBA1C0E2DB092570026CF49 /* airhorn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACBA1C0D2DB092570026CF49 /* airhorn.mp3 */; };
+		ACBA1C0F2DB092570026CF49 /* airhorn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACBA1C0D2DB092570026CF49 /* airhorn.mp3 */; };
 		ACDEEB2F2DAF49C900001A20 /* commute_proApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB2E2DAF49C900001A20 /* commute_proApp.swift */; };
 		ACDEEB332DAF49CA00001A20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACDEEB322DAF49CA00001A20 /* Assets.xcassets */; };
 		ACDEEB362DAF49CA00001A20 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACDEEB352DAF49CA00001A20 /* Preview Assets.xcassets */; };
@@ -80,6 +82,7 @@
 		ACBA1BEF2DB085B10026CF49 /* commute_pro_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commute_pro_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		ACBA1C092DB08C510026CF49 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		ACBA1C0B2DB08C950026CF49 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		ACBA1C0D2DB092570026CF49 /* airhorn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = airhorn.mp3; sourceTree = "<group>"; };
 		ACDEEB2B2DAF49C900001A20 /* commute_pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = commute_pro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACDEEB2E2DAF49C900001A20 /* commute_proApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commute_proApp.swift; sourceTree = "<group>"; };
 		ACDEEB322DAF49CA00001A20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -226,6 +229,7 @@
 		ACDEEB2D2DAF49C900001A20 /* commute_pro */ = {
 			isa = PBXGroup;
 			children = (
+				ACBA1C0D2DB092570026CF49 /* airhorn.mp3 */,
 				ACBA1C092DB08C510026CF49 /* Persistence.swift */,
 				ACDEEB2E2DAF49C900001A20 /* commute_proApp.swift */,
 				ACDEEB322DAF49CA00001A20 /* Assets.xcassets */,
@@ -433,6 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACBA1BDA2DB085B00026CF49 /* Preview Assets.xcassets in Resources */,
+				ACBA1C0F2DB092570026CF49 /* airhorn.mp3 in Resources */,
 				ACBA1BD72DB085B00026CF49 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,6 +461,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACDEEB362DAF49CA00001A20 /* Preview Assets.xcassets in Resources */,
+				ACBA1C0E2DB092570026CF49 /* airhorn.mp3 in Resources */,
 				ACDEEB332DAF49CA00001A20 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

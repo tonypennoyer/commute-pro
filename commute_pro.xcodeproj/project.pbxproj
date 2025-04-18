@@ -33,6 +33,10 @@
 		ACBA1C182DB29D520026CF49 /* AppErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA1C162DB29D520026CF49 /* AppErrors.swift */; };
 		ACBA1C1A2DB29D6D0026CF49 /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA1C192DB29D6D0026CF49 /* FlowLayout.swift */; };
 		ACBA1C1B2DB29D6D0026CF49 /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA1C192DB29D6D0026CF49 /* FlowLayout.swift */; };
+		ACBA1C1F2DB2E0AF0026CF49 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA1C1E2DB2E0AF0026CF49 /* VideoPlayerView.swift */; };
+		ACBA1C202DB2E0AF0026CF49 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA1C1E2DB2E0AF0026CF49 /* VideoPlayerView.swift */; };
+		ACBA1C222DB2E1AF0026CF49 /* hell yeeeeeeah.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = ACBA1C212DB2E1AF0026CF49 /* hell yeeeeeeah.mp4 */; };
+		ACBA1C232DB2E1AF0026CF49 /* hell yeeeeeeah.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = ACBA1C212DB2E1AF0026CF49 /* hell yeeeeeeah.mp4 */; };
 		ACDEEB2F2DAF49C900001A20 /* commute_proApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB2E2DAF49C900001A20 /* commute_proApp.swift */; };
 		ACDEEB332DAF49CA00001A20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACDEEB322DAF49CA00001A20 /* Assets.xcassets */; };
 		ACDEEB362DAF49CA00001A20 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACDEEB352DAF49CA00001A20 /* Preview Assets.xcassets */; };
@@ -95,6 +99,8 @@
 		ACBA1C132DB29D010026CF49 /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		ACBA1C162DB29D520026CF49 /* AppErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppErrors.swift; sourceTree = "<group>"; };
 		ACBA1C192DB29D6D0026CF49 /* FlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
+		ACBA1C1E2DB2E0AF0026CF49 /* VideoPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
+		ACBA1C212DB2E1AF0026CF49 /* hell yeeeeeeah.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "hell yeeeeeeah.mp4"; sourceTree = "<group>"; };
 		ACDEEB2B2DAF49C900001A20 /* commute_pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = commute_pro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACDEEB2E2DAF49C900001A20 /* commute_proApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commute_proApp.swift; sourceTree = "<group>"; };
 		ACDEEB322DAF49CA00001A20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -201,6 +207,8 @@
 		ACBA1C022DB089BC0026CF49 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				ACBA1C1E2DB2E0AF0026CF49 /* VideoPlayerView.swift */,
+				ACBA1C1C2DB2E0510026CF49 /* Assets */,
 				ACBA1C192DB29D6D0026CF49 /* FlowLayout.swift */,
 				ACBA1C162DB29D520026CF49 /* AppErrors.swift */,
 				ACBA1C132DB29D010026CF49 /* ErrorHandling.swift */,
@@ -213,6 +221,22 @@
 				ACDEEB902DAF4CD100001A20 /* NewCommuteView.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		ACBA1C1C2DB2E0510026CF49 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				ACBA1C1D2DB2E0510026CF49 /* Videos */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		ACBA1C1D2DB2E0510026CF49 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				ACBA1C212DB2E1AF0026CF49 /* hell yeeeeeeah.mp4 */,
+			);
+			path = Videos;
 			sourceTree = "<group>";
 		};
 		ACDEEB222DAF49C900001A20 = {
@@ -454,6 +478,7 @@
 			files = (
 				ACBA1BDA2DB085B00026CF49 /* Preview Assets.xcassets in Resources */,
 				ACBA1C0F2DB092570026CF49 /* airhorn.mp3 in Resources */,
+				ACBA1C232DB2E1AF0026CF49 /* hell yeeeeeeah.mp4 in Resources */,
 				ACBA1BD72DB085B00026CF49 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,6 +503,7 @@
 			files = (
 				ACDEEB362DAF49CA00001A20 /* Preview Assets.xcassets in Resources */,
 				ACBA1C0E2DB092570026CF49 /* airhorn.mp3 in Resources */,
+				ACBA1C222DB2E1AF0026CF49 /* hell yeeeeeeah.mp4 in Resources */,
 				ACDEEB332DAF49CA00001A20 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -517,6 +543,7 @@
 				ACBA1C152DB29D010026CF49 /* ErrorHandling.swift in Sources */,
 				ACBA1BD32DB085AF0026CF49 /* commute_pro_iOSApp.swift in Sources */,
 				ACBA1C0C2DB08C950026CF49 /* Persistence.swift in Sources */,
+				ACBA1C202DB2E0AF0026CF49 /* VideoPlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,6 +579,7 @@
 				ACDEEB3B2DAF49CA00001A20 /* commute_pro.xcdatamodeld in Sources */,
 				ACBA1C142DB29D010026CF49 /* ErrorHandling.swift in Sources */,
 				ACDEEB2F2DAF49C900001A20 /* commute_proApp.swift in Sources */,
+				ACBA1C1F2DB2E0AF0026CF49 /* VideoPlayerView.swift in Sources */,
 				ACDEEB912DAF4CD100001A20 /* NewCommuteView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

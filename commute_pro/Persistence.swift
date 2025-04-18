@@ -6,6 +6,8 @@
 //
 
 import CoreData
+import SwiftUI
+import AppErrors
 
 struct PersistenceController {
     static let shared = PersistenceController()
@@ -19,12 +21,9 @@ struct PersistenceController {
             newCommute.mode = "walk"
         }
         do {
-            try viewContext.save()
+            try result.save()
         } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            print("Preview data creation failed: \(error)")
         }
         return result
     }()
@@ -36,22 +35,123 @@ struct PersistenceController {
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-
-                /*
-                Typical reasons for an error here include:
-                * The parent directory does not exist, cannot be created, or disallows writing.
-                * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                * The device is out of space.
-                * The store could not be migrated to the current model version.
-                Check the error message to determine what the actual problem was.
-                */
-                fatalError("Unresolved error \(error), \(error.userInfo)")
+        container.loadPersistentStores { description, error in
+            if let error = error {
+                print("Core Data failed to load: \(error.localizedDescription)")
+                // Log the error but don't crash in production
+                #if DEBUG
+                print("Debug details: \(error)")
+                #endif
             }
-        })
+        }
         container.viewContext.automaticallyMergesChangesFromParent = true
+        setupValidationRules()
+    }
+    
+    private func setupValidationRules() {
+        // Add validation rules to the model
+        container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        
+        // Set up default values and constraints
+        if let entity = NSEntityDescription.entity(forEntityName: "Commute", in: container.viewContext) {
+            entity.properties.forEach { property in
+                if let attribute = property as? NSAttributeDescription {
+                    switch attribute.name {
+                    case "name":
+                        attribute.isOptional = false
+                    case "mode":
+                        attribute.isOptional = false
+                        attribute.defaultValue = "walk"
+                    default:
+                        break
+                    }
+                }
+            }
+        }
+    }
+    
+    func save() throws {
+        let context = container.viewContext
+        
+        // Validate before saving
+        try validate()
+        
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                throw CoreDataError.savingError(error)
+            }
+        }
+    }
+    
+    private func validate() throws {
+        let context = container.viewContext
+        
+        // Validate all objects in the context
+        for object in context.insertedObjects.union(context.updatedObjects) {
+            if let commute = object as? Commute {
+                // Validate Commute
+                if commute.name?.isEmpty ?? true {
+                    throw CoreDataError.validationError("Commute name cannot be empty")
+                }
+                
+                if let mode = commute.mode {
+                    let validModes = ["walk", "bike", "run", "subway"]
+                    if !validModes.contains(mode.lowercased()) {
+                        throw CoreDataError.validationError("Invalid commute mode: \(mode)")
+                    }
+                }
+            } else if let session = object as? Session {
+                // Validate Session
+                if session.duration < 0 {
+                    throw CoreDataError.validationError("Session duration cannot be negative")
+                }
+                
+                if session.date == nil {
+                    session.date = Date()
+                }
+                
+                if session.id == nil {
+                    session.id = UUID()
+                }
+            }
+        }
+    }
+    
+    // MARK: - Batch Operations
+    
+    func batchDelete(entityName: String, predicate: NSPredicate? = nil) throws {
+        let context = container.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        fetchRequest.predicate = predicate
+        
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        batchDeleteRequest.resultType = .resultTypeObjectIDs
+        
+        do {
+            let result = try context.execute(batchDeleteRequest) as? NSBatchDeleteResult
+            let changes: [AnyHashable: Any] = [
+                NSDeletedObjectsKey: result?.result as? [NSManagedObjectID] ?? []
+            ]
+            NSManagedObjectContext.mergeChanges(fromRemoteContextSave: changes, into: [context])
+        } catch {
+            throw CoreDataError.savingError(error)
+        }
+    }
+}
+
+// MARK: - View Context Extension
+extension NSManagedObjectContext {
+    func safeSave() throws {
+        if hasChanges {
+            do {
+                try save()
+            } catch {
+                // Rollback on error
+                rollback()
+                throw CoreDataError.savingError(error)
+            }
+        }
     }
 }

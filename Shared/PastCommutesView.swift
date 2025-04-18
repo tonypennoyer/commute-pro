@@ -1,11 +1,21 @@
 import SwiftUI
+import CoreData
 
 struct PastCommutesView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @StateObject private var errorHandler = ErrorHandlingViewModel()
     let commute: Commute
     
-    var sessions: [Session] {
-        (commute.sessions as? Set<Session>)?.sorted { $0.date ?? Date() > $1.date ?? Date() } ?? []
+    // Force view to update when sessions change
+    @FetchRequest var sessions: FetchedResults<Session>
+    
+    init(commute: Commute) {
+        self.commute = commute
+        // Create a fetch request for this commute's sessions
+        let request: NSFetchRequest<Session> = Session.fetchRequest()
+        request.predicate = NSPredicate(format: "commute == %@", commute)
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \Session.date, ascending: false)]
+        _sessions = FetchRequest(fetchRequest: request)
     }
     
     var averageTime: TimeInterval {
@@ -87,12 +97,17 @@ struct PastCommutesView: View {
             .padding()
         }
         .navigationTitle("Stats")
+        .handleErrors(errorHandler)
     }
     
     private func deleteSession(_ session: Session) {
         withAnimation {
             viewContext.delete(session)
-            try? viewContext.save()
+            do {
+                try viewContext.save()
+            } catch {
+                errorHandler.handle(error)
+            }
         }
     }
     
@@ -108,6 +123,7 @@ struct PastCommutesView: View {
         case "bike": return "bicycle"
         case "run": return "figure.run"
         case "subway": return "tram.fill"
+        case "bike + subway": return "bicycle"
         default: return "figure.walk"
         }
     }

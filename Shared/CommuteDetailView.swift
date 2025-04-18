@@ -18,18 +18,24 @@ struct CommuteDetailView: View {
     @State private var timer: Timer?
     @State private var audioPlayer: AVAudioPlayer?
     @State private var showingPRCelebration = false
+    @State private var showingFasterCelebration = false
     @State private var celebrationOffset: CGFloat = UIScreen.main.bounds.width
     @State private var selectedMode: CommuteMode = .subway
     @State private var selectedModes: Set<CommuteMode> = []
+    @State private var showingSubmitButton = false
 
     var sessions: [Session] {
         (commute.sessions as? Set<Session>)?.sorted { $0.date ?? Date() > $1.date ?? Date() } ?? []
     }
 
     var averageTime: TimeInterval {
-        guard !sessions.isEmpty else { return 0 }
-        let total = sessions.reduce(0) { $0 + $1.duration }
-        return total / Double(sessions.count)
+        let previousSessions = (commute.sessions as? Set<Session>)?.filter {
+            ($0.duration > 0) && ($0.date ?? Date() < Date())
+        } ?? []
+        
+        guard !previousSessions.isEmpty else { return 0 }
+        let total = previousSessions.reduce(0) { $0 + $1.duration }
+        return total / Double(previousSessions.count)
     }
 
     private var backgroundColor: Color {
@@ -52,59 +58,82 @@ struct CommuteDetailView: View {
             Spacer()
             
             // Timer Section
-            VStack(spacing: 16) {
-                Text(timeString(from: elapsedTime))
-                    .font(.system(size: 84, weight: .medium, design: .monospaced))
-                    .monospacedDigit()
+            VStack(spacing: 24) {
+                Spacer()
                 
-                HStack(spacing: 20) {
-                    // Start/Stop Button
-                    Button(action: { isRunning ? stopTimer() : startTimer() }) {
-                        Text(isRunning ? "Stop" : "Start")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .frame(width: 120, height: 44)
-                            .background(isRunning ? Color.red : Color.green)
-                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                ZStack(alignment: .center) {
+                    if isRunning && selectedMode == .bike {
+                        VideoPlayerView(videoName: "hell yeeeeeeah", videoExtension: "mp4")
+                            .frame(width: 200, height: 120)
+                            .offset(y: -130)
+                            .transition(.opacity)
                     }
                     
-                    // Reset Button (only shown when stopped and time > 0)
-                    if !isRunning && elapsedTime > 0 {
-                        Button(action: resetTimer) {
-                            Text("Reset")
-                                .font(.headline)
-                                .foregroundColor(.white)
-                                .frame(width: 120, height: 44)
-                                .background(Color.gray)
-                                .clipShape(RoundedRectangle(cornerRadius: 12))
-                        }
-                    }
-                }
-                .padding(.bottom, 24)
-                
-                // Mode Selection Section
-                VStack(spacing: 8) {
-                    Text("Mode")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                    
-                    Picker("Transportation Mode", selection: $selectedMode) {
-                        ForEach(CommuteMode.allCases) { mode in
-                            Label {
-                                Text(mode.rawValue.capitalized)
-                            } icon: {
-                                Image(systemName: modeIcon(for: mode.rawValue))
+                    VStack(spacing: 24) {
+                        Text(timeString(from: elapsedTime))
+                            .font(.system(size: 84, weight: .medium, design: .monospaced))
+                            .monospacedDigit()
+                            .padding(.top, isRunning && selectedMode == .bike ? 40 : 0)
+                        
+                        HStack(spacing: 20) {
+                            if showingSubmitButton {
+                                // Reset Button
+                                Button(action: resetTimer) {
+                                    Text("Reset")
+                                        .font(.headline)
+                                        .foregroundColor(.white)
+                                        .frame(width: 120, height: 44)
+                                        .background(Color.gray)
+                                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                                }
+                                
+                                // Submit Button
+                                Button(action: submitTime) {
+                                    Text("Submit")
+                                        .font(.headline)
+                                        .foregroundColor(.white)
+                                        .frame(width: 120, height: 44)
+                                        .background(Color.blue)
+                                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                                }
+                            } else {
+                                // Start/Done Button
+                                Button(action: { isRunning ? stopTimer() : startTimer() }) {
+                                    Text(isRunning ? "Done" : "Start")
+                                        .font(.headline)
+                                        .foregroundColor(.white)
+                                        .frame(width: 120, height: 44)
+                                        .background(isRunning ? Color.gray : Color.green)
+                                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                                }
                             }
-                            .tag(mode)
                         }
                     }
-                    .disabled(isRunning)
-                    .pickerStyle(.menu)
                 }
+                
+                Spacer()
             }
-            .padding(.vertical, 24)
             
-            Spacer()
+            // Mode Selection Section
+            VStack(spacing: 8) {
+                Text("Commute")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                
+                Picker("Transportation Mode", selection: $selectedMode) {
+                    ForEach(CommuteMode.allCases) { mode in
+                        Label {
+                            Text(mode.rawValue.capitalized)
+                        } icon: {
+                            Image(systemName: modeIcon(for: mode.rawValue))
+                        }
+                        .tag(mode)
+                    }
+                }
+                .disabled(isRunning || showingSubmitButton)
+                .pickerStyle(.menu)
+            }
+            .padding(.bottom, 24)
         }
         .padding()
         #if os(iOS)
@@ -122,8 +151,7 @@ struct CommuteDetailView: View {
                 VStack {
                     Text("niiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiice")
                         .font(.system(size: 48, weight: .black))
-                        .foregroundColor(.black)
-                        .shadow(color: .white, radius: 2)
+                        .foregroundColor(.green)
                         .offset(x: celebrationOffset)
                         .transition(.opacity)
                         .lineLimit(1)
@@ -131,12 +159,23 @@ struct CommuteDetailView: View {
                     
                     Spacer()
                     
+                    Text("PR")
+                        .font(.system(size: 120, weight: .bold))
+                        .foregroundColor(.black)
+                    
                     Text("WoW")
                         .font(.system(size: 72, weight: .black))
                         .foregroundColor(.black)
-                        .shadow(color: .white, radius: 2)
                         .padding(.bottom, 120)
                 }
+            } else if showingFasterCelebration {
+                Text("faster than average niiiiiiiiiiiiiiiice")
+                    .font(.system(size: 48, weight: .black))
+                    .foregroundColor(.green)
+                    .offset(x: celebrationOffset)
+                    .transition(.opacity)
+                    .lineLimit(1)
+                    .fixedSize()
             }
         }
     }
@@ -144,6 +183,7 @@ struct CommuteDetailView: View {
     func startTimer() {
         startTime = Date()
         isRunning = true
+        showingSubmitButton = false
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
             if let start = startTime {
                 elapsedTime = Date().timeIntervalSince(start)
@@ -155,7 +195,16 @@ struct CommuteDetailView: View {
         timer?.invalidate()
         timer = nil
         isRunning = false
-        
+        showingSubmitButton = true
+    }
+    
+    func resetTimer() {
+        elapsedTime = 0
+        startTime = nil
+        showingSubmitButton = false
+    }
+    
+    func submitTime() {
         guard let start = startTime else { return }
         let duration = Date().timeIntervalSince(start)
         
@@ -178,6 +227,28 @@ struct CommuteDetailView: View {
         let isPRTime = isPR(duration, forMode: selectedMode.rawValue)
         print("🏆 Is this a PR? \(isPRTime)")
         
+        // Check if faster than average (only if we have previous sessions)
+        let average = averageTime
+        if average > 0 && duration < average {
+            print("⚡️ Faster than average!")
+            withAnimation {
+                showingFasterCelebration = true
+            }
+            
+            // Animate the text scrolling across the screen
+            withAnimation(.linear(duration: 3)) {
+                celebrationOffset = -UIScreen.main.bounds.width * 1.5
+            }
+            
+            // Reset and hide after animation
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                withAnimation {
+                    showingFasterCelebration = false
+                }
+                celebrationOffset = UIScreen.main.bounds.width
+            }
+        }
+        
         if isPRTime {
             print("🎉 Starting PR celebration!")
             playAirhorn()
@@ -191,7 +262,7 @@ struct CommuteDetailView: View {
             }
             
             // Reset and hide after animation
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 withAnimation {
                     showingPRCelebration = false
                 }
@@ -200,11 +271,7 @@ struct CommuteDetailView: View {
         }
 
         try? viewContext.save()
-    }
-    
-    func resetTimer() {
-        elapsedTime = 0
-        startTime = nil
+        resetTimer()
     }
 
     func isPR(_ duration: TimeInterval, forMode mode: String) -> Bool {

@@ -6,6 +6,7 @@ import UIKit
 import AVFAudio
 #endif
 import AVFoundation
+import CoreData
 
 struct CommuteDetailView: View {
     @Environment(\.managedObjectContext) private var viewContext
@@ -18,6 +19,8 @@ struct CommuteDetailView: View {
     @State private var audioPlayer: AVAudioPlayer?
     @State private var showingPRCelebration = false
     @State private var celebrationOffset: CGFloat = UIScreen.main.bounds.width
+    @State private var selectedMode: CommuteMode = .subway
+    @State private var selectedModes: Set<CommuteMode> = []
 
     var sessions: [Session] {
         (commute.sessions as? Set<Session>)?.sorted { $0.date ?? Date() > $1.date ?? Date() } ?? []
@@ -38,25 +41,24 @@ struct CommuteDetailView: View {
     }
 
     var body: some View {
-        ScrollView {
-            VStack(spacing: 24) {
-                // Header Section
-                VStack(spacing: 8) {
-                    Text(commute.name ?? "")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                    
-                    Label(commute.mode ?? "", systemImage: modeIcon(for: commute.mode ?? ""))
-                        .foregroundStyle(.secondary)
-                }
-                .padding(.top)
+        VStack(spacing: 24) {
+            // Header Section
+            VStack(spacing: 8) {
+                Text(commute.name ?? "")
+                    .font(.title)
+                    .fontWeight(.bold)
+            }
+            
+            Spacer()
+            
+            // Timer Section
+            VStack(spacing: 16) {
+                Text(timeString(from: elapsedTime))
+                    .font(.system(size: 84, weight: .medium, design: .monospaced))
+                    .monospacedDigit()
                 
-                // Timer Section
-                VStack(spacing: 16) {
-                    Text(timeString(from: elapsedTime))
-                        .font(.system(size: 64, weight: .medium, design: .monospaced))
-                        .monospacedDigit()
-                    
+                HStack(spacing: 20) {
+                    // Start/Stop Button
                     Button(action: { isRunning ? stopTimer() : startTimer() }) {
                         Text(isRunning ? "Stop" : "Start")
                             .font(.headline)
@@ -66,90 +68,77 @@ struct CommuteDetailView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 12))
                     }
                     
-                    // Add clear button for testing
-                    Button(action: clearAllSessions) {
-                        Text("Clear All Times (Testing)")
-                            .font(.caption)
-                            .foregroundColor(.red)
-                    }
-                }
-                .padding(.vertical)
-                .overlay {
-                    if showingPRCelebration {
-                        VStack {
-                            Text("niiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiice")
-                                .font(.system(size: 48, weight: .black))
-                                .foregroundColor(.black)
-                                .shadow(color: .white, radius: 2)
-                                .offset(x: celebrationOffset)
-                                .transition(.opacity)
-                                .lineLimit(1)
-                                .fixedSize()
-                            
-                            Spacer()
-                            
-                            Text("WoW")
-                                .font(.system(size: 72, weight: .black))
-                                .foregroundColor(.black)
-                                .shadow(color: .white, radius: 2)
-                                .padding(.bottom, 120)
+                    // Reset Button (only shown when stopped and time > 0)
+                    if !isRunning && elapsedTime > 0 {
+                        Button(action: resetTimer) {
+                            Text("Reset")
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .frame(width: 120, height: 44)
+                                .background(Color.gray)
+                                .clipShape(RoundedRectangle(cornerRadius: 12))
                         }
                     }
                 }
+                .padding(.bottom, 24)
                 
-                // Stats Section
-                VStack(alignment: .leading, spacing: 16) {
-                    Text("Statistics")
-                        .font(.title2)
-                        .fontWeight(.semibold)
+                // Mode Selection Section
+                VStack(spacing: 8) {
+                    Text("Mode")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
                     
-                    HStack {
-                        StatView(title: "Average Time", value: timeString(from: averageTime))
-                        Divider()
-                        StatView(title: "Total Trips", value: "\(sessions.count)")
-                    }
-                }
-                .padding()
-                .background(backgroundColor)
-                .clipShape(RoundedRectangle(cornerRadius: 16))
-                
-                // History Section
-                VStack(alignment: .leading, spacing: 12) {
-                    Text("History")
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                    
-                    ForEach(sessions, id: \.self) { session in
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text(timeString(from: session.duration))
-                                    .font(.headline)
-                                if let date = session.date {
-                                    Text(dateFormatter.string(from: date))
-                                        .font(.subheadline)
-                                        .foregroundStyle(.secondary)
-                                }
+                    Picker("Transportation Mode", selection: $selectedMode) {
+                        ForEach(CommuteMode.allCases) { mode in
+                            Label {
+                                Text(mode.rawValue.capitalized)
+                            } icon: {
+                                Image(systemName: modeIcon(for: mode.rawValue))
                             }
-                            Spacer()
-                            Button(action: {
-                                deleteSession(session)
-                            }) {
-                                Image(systemName: "trash")
-                                    .foregroundColor(.red)
-                            }
-                            .buttonStyle(.plain)
+                            .tag(mode)
                         }
-                        .padding()
-                        .background(backgroundColor)
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
                     }
+                    .disabled(isRunning)
+                    .pickerStyle(.menu)
                 }
             }
-            .padding()
+            .padding(.vertical, 24)
+            
+            Spacer()
         }
+        .padding()
         #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                NavigationLink(destination: PastCommutesView(commute: commute)) {
+                    Image(systemName: "chart.bar.fill")
+                }
+            }
+        }
         #endif
+        .overlay {
+            if showingPRCelebration {
+                VStack {
+                    Text("niiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiice")
+                        .font(.system(size: 48, weight: .black))
+                        .foregroundColor(.black)
+                        .shadow(color: .white, radius: 2)
+                        .offset(x: celebrationOffset)
+                        .transition(.opacity)
+                        .lineLimit(1)
+                        .fixedSize()
+                    
+                    Spacer()
+                    
+                    Text("WoW")
+                        .font(.system(size: 72, weight: .black))
+                        .foregroundColor(.black)
+                        .shadow(color: .white, radius: 2)
+                        .padding(.bottom, 120)
+                }
+            }
+        }
     }
 
     func startTimer() {
@@ -166,14 +155,13 @@ struct CommuteDetailView: View {
         timer?.invalidate()
         timer = nil
         isRunning = false
-
+        
         guard let start = startTime else { return }
         let duration = Date().timeIntervalSince(start)
         
         // Don't save if duration is 0
         if duration < 1 {
             print("⏱️ Timer stopped too quickly, ignoring...")
-            elapsedTime = 0
             return
         }
         
@@ -183,10 +171,11 @@ struct CommuteDetailView: View {
         session.id = UUID()
         session.date = Date()
         session.duration = duration
+        session.mode = selectedMode.rawValue
         session.commute = commute
 
-        // Check if this is a PR
-        let isPRTime = isPR(duration)
+        // Check if this is a PR for this mode
+        let isPRTime = isPR(duration, forMode: selectedMode.rawValue)
         print("🏆 Is this a PR? \(isPRTime)")
         
         if isPRTime {
@@ -211,10 +200,14 @@ struct CommuteDetailView: View {
         }
 
         try? viewContext.save()
+    }
+    
+    func resetTimer() {
         elapsedTime = 0
+        startTime = nil
     }
 
-    func isPR(_ duration: TimeInterval) -> Bool {
+    func isPR(_ duration: TimeInterval, forMode mode: String) -> Bool {
         // Don't count zero durations
         if duration < 1 {
             return false
@@ -223,7 +216,8 @@ struct CommuteDetailView: View {
         // Get all previous sessions for this commute
         let previousSessions = (commute.sessions as? Set<Session>)?.filter { 
             // Filter out sessions with 0 duration and future dates
-            ($0.duration > 0) && ($0.date ?? Date() < Date())
+            ($0.duration > 0) && 
+            ($0.date ?? Date() < Date())
         } ?? []
         
         print("📊 Previous sessions count: \(previousSessions.count)")
@@ -233,7 +227,7 @@ struct CommuteDetailView: View {
             print("📊 Best previous time: \(timeString(from: bestTime))")
             print("📊 All previous times:")
             previousSessions.forEach { session in
-                print("   - \(timeString(from: session.duration))")
+                print("   - \(timeString(from: session.duration)) (\(session.mode ?? "unknown"))")
             }
             
             // A new PR is when the current duration is LESS than or EQUAL TO the best time
@@ -242,7 +236,7 @@ struct CommuteDetailView: View {
             return isPR
         }
         
-        // If this is the first valid session, it's automatically a PR
+        // If this is the first valid session for this commute, it's automatically a PR
         print("🎯 First session - automatic PR!")
         return true
     }
@@ -297,14 +291,18 @@ struct CommuteDetailView: View {
         return String(format: "%02d:%02d", minutes, seconds)
     }
 
-    func modeIcon(for mode: String) -> String {
+    private func modeIcon(for mode: String) -> String {
         switch mode.lowercased() {
-        case "walk": return "figure.walk"
-        case "bike": return "bicycle"
-        case "car": return "car"
-        case "subway": return "tram"
-        case "bus": return "bus"
-        default: return "figure.walk"
+        case "bike":
+            return "bicycle"
+        case "run":
+            return "figure.run"
+        case "subway":
+            return "tram.fill"
+        case "bike + subway":
+            return "bicycle"  // Using bike icon for combined mode
+        default:
+            return "questionmark.circle"
         }
     }
 
@@ -322,6 +320,14 @@ struct CommuteDetailView: View {
             viewContext.delete(session)
         }
         try? viewContext.save()
+    }
+
+    private func toggleMode(_ mode: CommuteMode) {
+        if selectedModes.contains(mode) {
+            selectedModes.remove(mode)
+        } else {
+            selectedModes.insert(mode)
+        }
     }
 }
 

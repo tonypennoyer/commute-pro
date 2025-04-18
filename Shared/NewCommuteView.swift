@@ -3,9 +3,10 @@ import SwiftUI
 struct NewCommuteView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.dismiss) var dismiss
+    @StateObject private var errorHandler = ErrorHandlingViewModel()
     
     @State private var name = ""
-    @State private var mode = CommuteMode.walk
+    @State private var mode = CommuteMode.subway
     
     private var capitalizedNameBinding: Binding<String> {
         Binding(
@@ -26,15 +27,30 @@ struct NewCommuteView: View {
                 }
                 
                 Section(header: Text("Transportation")) {
-                    Picker("Transportation Mode", selection: $mode) {
-                        ForEach(CommuteMode.allCases) { option in
-                            Label("\(option.rawValue.capitalized)", systemImage: modeIcon(for: option.rawValue))
+                    Menu {
+                        Picker("Transportation Mode", selection: $mode) {
+                            ForEach(CommuteMode.allCases) { option in
+                                Label {
+                                    Text(option.rawValue.capitalized)
+                                } icon: {
+                                    Image(systemName: modeIcon(for: option.rawValue))
+                                }
                                 .tag(option)
+                            }
                         }
+                    } label: {
+                        HStack {
+                            Label {
+                                Text(mode.rawValue.capitalized)
+                            } icon: {
+                                Image(systemName: modeIcon(for: mode.rawValue))
+                            }
+                            Spacer()
+                            Image(systemName: "chevron.up.chevron.down")
+                                .foregroundStyle(.secondary)
+                        }
+                        .padding(.vertical, 4)
                     }
-                    #if os(iOS)
-                    .pickerStyle(.inline)
-                    #endif
                 }
             }
             #if os(macOS)
@@ -64,23 +80,28 @@ struct NewCommuteView: View {
         #if os(macOS)
         .frame(minWidth: 300, minHeight: 200)
         #endif
+        .handleErrors(errorHandler)
     }
     
     private func saveCommute() {
         let newCommute = Commute(context: viewContext)
         newCommute.name = name
         newCommute.mode = mode.rawValue
-        try? viewContext.save()
-        dismiss()
+        
+        do {
+            try viewContext.save()
+            dismiss()
+        } catch {
+            errorHandler.handle(error)
+        }
     }
     
     private func modeIcon(for mode: String) -> String {
         switch mode.lowercased() {
         case "walk": return "figure.walk"
         case "bike": return "bicycle"
-        case "car": return "car"
-        case "subway": return "tram"
-        case "bus": return "bus"
+        case "run": return "figure.run"
+        case "subway": return "tram.fill"
         default: return "figure.walk"
         }
     }

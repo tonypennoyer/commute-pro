@@ -2,6 +2,7 @@ import SwiftUI
 
 struct CommuteListView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @StateObject private var errorHandler = ErrorHandlingViewModel()
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Commute.name, ascending: true)],
@@ -49,12 +50,17 @@ struct CommuteListView: View {
                 }
             }
         }
+        .handleErrors(errorHandler)
     }
     
     private func deleteCommutes(offsets: IndexSet) {
         withAnimation {
             offsets.map { commutes[$0] }.forEach(viewContext.delete)
-            try? viewContext.save()
+            do {
+                try viewContext.save()
+            } catch {
+                errorHandler.handle(error)
+            }
         }
     }
     
@@ -62,9 +68,8 @@ struct CommuteListView: View {
         switch mode.lowercased() {
         case "walk": return "figure.walk"
         case "bike": return "bicycle"
-        case "car": return "car"
-        case "subway": return "tram"
-        case "bus": return "bus"
+        case "run": return "figure.run"
+        case "subway": return "tram.fill"
         default: return "figure.walk"
         }
     }

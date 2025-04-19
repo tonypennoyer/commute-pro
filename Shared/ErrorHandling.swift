@@ -1,6 +1,26 @@
 import SwiftUI
 import CoreData
 
+// MARK: - Error Types
+enum CoreDataError: LocalizedError {
+    case loadingError(Error)
+    case savingError(Error)
+    case validationError(String)
+    
+    var errorDescription: String? {
+        switch self {
+        case .loadingError(let error):
+            return "Failed to load data: \(error.localizedDescription)"
+        case .savingError(let error):
+            return "Failed to save data: \(error.localizedDescription)"
+        case .validationError(let message):
+            return "Validation error: \(message)"
+        }
+    }
+}
+
+// MARK: - View Model
+@MainActor
 class ErrorHandlingViewModel: ObservableObject {
     @Published var error: CoreDataError?
     @Published var showError = false
@@ -15,6 +35,7 @@ class ErrorHandlingViewModel: ObservableObject {
     }
 }
 
+// MARK: - View Modifier
 struct ErrorAlert: ViewModifier {
     @ObservedObject var errorHandler: ErrorHandlingViewModel
     
@@ -32,6 +53,7 @@ struct ErrorAlert: ViewModifier {
     }
 }
 
+// MARK: - View Extension
 extension View {
     func handleErrors(_ errorHandler: ErrorHandlingViewModel) -> some View {
         modifier(ErrorAlert(errorHandler: errorHandler))

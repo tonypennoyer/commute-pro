@@ -19,7 +19,13 @@ struct CommuteDetailView: View {
     @State private var audioPlayer: AVAudioPlayer?
     @State private var showingPRCelebration = false
     @State private var showingFasterCelebration = false
-    @State private var celebrationOffset: CGFloat = UIScreen.main.bounds.width
+    @State private var celebrationOffset: CGFloat = {
+        #if os(macOS)
+        return NSScreen.main?.frame.width ?? 0
+        #else
+        return UIScreen.main.bounds.width
+        #endif
+    }()
     @State private var selectedMode: CommuteMode = .subway
     @State private var selectedModes: Set<CommuteMode> = []
     @State private var showingSubmitButton = false

@@ -29,8 +29,6 @@
 		ACBA1C122DB296050026CF49 /* PastCommutesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA1C102DB296050026CF49 /* PastCommutesView.swift */; };
 		ACBA1C142DB29D010026CF49 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA1C132DB29D010026CF49 /* ErrorHandling.swift */; };
 		ACBA1C152DB29D010026CF49 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA1C132DB29D010026CF49 /* ErrorHandling.swift */; };
-		ACBA1C172DB29D520026CF49 /* AppErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA1C162DB29D520026CF49 /* AppErrors.swift */; };
-		ACBA1C182DB29D520026CF49 /* AppErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA1C162DB29D520026CF49 /* AppErrors.swift */; };
 		ACBA1C1A2DB29D6D0026CF49 /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA1C192DB29D6D0026CF49 /* FlowLayout.swift */; };
 		ACBA1C1B2DB29D6D0026CF49 /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA1C192DB29D6D0026CF49 /* FlowLayout.swift */; };
 		ACBA1C1F2DB2E0AF0026CF49 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA1C1E2DB2E0AF0026CF49 /* VideoPlayerView.swift */; };
@@ -97,7 +95,6 @@
 		ACBA1C0D2DB092570026CF49 /* airhorn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = airhorn.mp3; sourceTree = "<group>"; };
 		ACBA1C102DB296050026CF49 /* PastCommutesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastCommutesView.swift; sourceTree = "<group>"; };
 		ACBA1C132DB29D010026CF49 /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
-		ACBA1C162DB29D520026CF49 /* AppErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppErrors.swift; sourceTree = "<group>"; };
 		ACBA1C192DB29D6D0026CF49 /* FlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
 		ACBA1C1E2DB2E0AF0026CF49 /* VideoPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
 		ACBA1C242DB2E8CC0026CF49 /* bike_animation.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bike_animation.mp4; sourceTree = "<group>"; };
@@ -210,7 +207,6 @@
 				ACBA1C1E2DB2E0AF0026CF49 /* VideoPlayerView.swift */,
 				ACBA1C1C2DB2E0510026CF49 /* Assets */,
 				ACBA1C192DB29D6D0026CF49 /* FlowLayout.swift */,
-				ACBA1C162DB29D520026CF49 /* AppErrors.swift */,
 				ACBA1C132DB29D010026CF49 /* ErrorHandling.swift */,
 				ACBA1C102DB296050026CF49 /* PastCommutesView.swift */,
 				ACDEEB622DAF4A8500001A20 /* CommuteListView.swift */,
@@ -530,7 +526,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACBA1C042DB08A150026CF49 /* CommuteDetailView.swift in Sources */,
-				ACBA1C182DB29D520026CF49 /* AppErrors.swift in Sources */,
 				ACBA1C062DB08A1C0026CF49 /* CommuteTimeApp.swift in Sources */,
 				ACBA1BD52DB085AF0026CF49 /* ContentView.swift in Sources */,
 				ACBA1BFA2DB086420026CF49 /* commute_pro.xcdatamodeld in Sources */,
@@ -572,7 +567,6 @@
 				ACBA1C1A2DB29D6D0026CF49 /* FlowLayout.swift in Sources */,
 				ACDEEB632DAF4A8500001A20 /* CommuteListView.swift in Sources */,
 				ACBA1C0A2DB08C510026CF49 /* Persistence.swift in Sources */,
-				ACBA1C172DB29D520026CF49 /* AppErrors.swift in Sources */,
 				ACDEEB7B2DAF4C4800001A20 /* CommuteMode.swift in Sources */,
 				ACDEEB802DAF4C6000001A20 /* CommuteTimeApp.swift in Sources */,
 				ACDEEB762DAF4C3000001A20 /* CommuteDetailView.swift in Sources */,

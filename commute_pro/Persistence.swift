@@ -7,7 +7,6 @@
 
 import CoreData
 import SwiftUI
-import AppErrors
 
 struct PersistenceController {
     static let shared = PersistenceController()

@@ -20,7 +20,8 @@ let package = Package(
             name: "commute_pro",
             dependencies: [
                 .product(name: "Lottie", package: "lottie-ios")
-            ]),
+            ],
+            path: "Shared"),
         .testTarget(
             name: "commute_proTests",
             dependencies: ["commute_pro"]),

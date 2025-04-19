@@ -19,6 +19,8 @@ struct CommuteDetailView: View {
     @State private var audioPlayer: AVAudioPlayer?
     @State private var showingPRCelebration = false
     @State private var showingFasterCelebration = false
+    @State private var showingStats = false
+    @State private var statMessage = ""
     @State private var celebrationOffset: CGFloat = UIScreen.main.bounds.width
     @State private var selectedMode: CommuteMode = .subway
     @State private var selectedModes: Set<CommuteMode> = []
@@ -63,9 +65,9 @@ struct CommuteDetailView: View {
                 
                 ZStack(alignment: .center) {
                     if isRunning && selectedMode == .bike {
-                        VideoPlayerView(videoName: "hell yeeeeeeah", videoExtension: "mp4")
-                            .frame(width: 200, height: 120)
-                            .offset(y: -130)
+                        VideoPlayerView(videoName: "bike_animation", videoExtension: "mp4", videoGravity: .resizeAspectFill)
+                            .frame(width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.width) / 3.57)
+                            .offset(y: -160)
                             .transition(.opacity)
                     }
                     
@@ -96,14 +98,24 @@ struct CommuteDetailView: View {
                                         .background(Color.blue)
                                         .clipShape(RoundedRectangle(cornerRadius: 12))
                                 }
-                            } else {
-                                // Start/Done Button
-                                Button(action: { isRunning ? stopTimer() : startTimer() }) {
-                                    Text(isRunning ? "Done" : "Start")
+                            } else if !isRunning {
+                                // Start Button
+                                Button(action: startTimer) {
+                                    Text("Start")
                                         .font(.headline)
                                         .foregroundColor(.white)
                                         .frame(width: 120, height: 44)
-                                        .background(isRunning ? Color.gray : Color.green)
+                                        .background(Color.green)
+                                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                                }
+                            } else {
+                                // Done Button
+                                Button(action: stopTimer) {
+                                    Text("Done")
+                                        .font(.headline)
+                                        .foregroundColor(.white)
+                                        .frame(width: 120, height: 44)
+                                        .background(Color.gray)
                                         .clipShape(RoundedRectangle(cornerRadius: 12))
                                 }
                             }
@@ -148,7 +160,7 @@ struct CommuteDetailView: View {
         #endif
         .overlay {
             if showingPRCelebration {
-                VStack {
+                VStack(spacing: 4) {
                     Text("niiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiice")
                         .font(.system(size: 48, weight: .black))
                         .foregroundColor(.green)
@@ -162,12 +174,14 @@ struct CommuteDetailView: View {
                     Text("PR")
                         .font(.system(size: 120, weight: .bold))
                         .foregroundColor(.black)
+                        .padding(.top, 20)
                     
                     Text("WoW")
                         .font(.system(size: 72, weight: .black))
                         .foregroundColor(.black)
-                        .padding(.bottom, 120)
+                        .padding(.top, 4)
                 }
+                .padding(.top, 100)
             } else if showingFasterCelebration {
                 Text("faster than average niiiiiiiiiiiiiiiice")
                     .font(.system(size: 48, weight: .black))
@@ -176,6 +190,12 @@ struct CommuteDetailView: View {
                     .transition(.opacity)
                     .lineLimit(1)
                     .fixedSize()
+            } else if showingStats {
+                Text(statMessage)
+                    .font(.system(size: 32, weight: .bold))
+                    .foregroundColor(statMessage.contains("faster") ? .green : .red)
+                    .transition(.opacity)
+                    .padding(.top, 200)
             }
         }
     }
@@ -208,9 +228,10 @@ struct CommuteDetailView: View {
         guard let start = startTime else { return }
         let duration = Date().timeIntervalSince(start)
         
-        // Don't save if duration is 0
-        if duration < 1 {
-            print("⏱️ Timer stopped too quickly, ignoring...")
+        // Don't save if duration is less than 3 seconds
+        if duration < 3 {
+            print("⏱️ Timer stopped too quickly (less than 3 seconds), ignoring...")
+            resetTimer()
             return
         }
         
@@ -223,32 +244,8 @@ struct CommuteDetailView: View {
         session.mode = selectedMode.rawValue
         session.commute = commute
 
-        // Check if this is a PR for this mode
+        // Check if this is a PR
         let isPRTime = isPR(duration, forMode: selectedMode.rawValue)
-        print("🏆 Is this a PR? \(isPRTime)")
-        
-        // Check if faster than average (only if we have previous sessions)
-        let average = averageTime
-        if average > 0 && duration < average {
-            print("⚡️ Faster than average!")
-            withAnimation {
-                showingFasterCelebration = true
-            }
-            
-            // Animate the text scrolling across the screen
-            withAnimation(.linear(duration: 3)) {
-                celebrationOffset = -UIScreen.main.bounds.width * 1.5
-            }
-            
-            // Reset and hide after animation
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                withAnimation {
-                    showingFasterCelebration = false
-                }
-                celebrationOffset = UIScreen.main.bounds.width
-            }
-        }
-        
         if isPRTime {
             print("🎉 Starting PR celebration!")
             playAirhorn()
@@ -395,22 +392,5 @@ struct CommuteDetailView: View {
         } else {
             selectedModes.insert(mode)
         }
-    }
-}
-
-struct StatView: View {
-    let title: String
-    let value: String
-    
-    var body: some View {
-        VStack(spacing: 8) {
-            Text(title)
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
-            Text(value)
-                .font(.title3)
-                .fontWeight(.semibold)
-        }
-        .frame(maxWidth: .infinity)
     }
 }

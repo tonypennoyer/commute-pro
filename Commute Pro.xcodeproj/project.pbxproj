@@ -19,7 +19,6 @@
 		ACBA1C032DB08A100026CF49 /* CommuteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB622DAF4A8500001A20 /* CommuteListView.swift */; };
 		ACBA1C042DB08A150026CF49 /* CommuteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB752DAF4C3000001A20 /* CommuteDetailView.swift */; };
 		ACBA1C052DB08A180026CF49 /* CommuteMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB7A2DAF4C4800001A20 /* CommuteMode.swift */; };
-		ACBA1C062DB08A1C0026CF49 /* CommuteTimeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB7F2DAF4C6000001A20 /* CommuteTimeApp.swift */; };
 		ACBA1C072DB08A1F0026CF49 /* NewCommuteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB902DAF4CD100001A20 /* NewCommuteView.swift */; };
 		ACBA1C0A2DB08C510026CF49 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA1C092DB08C510026CF49 /* Persistence.swift */; };
 		ACBA1C0C2DB08C950026CF49 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA1C0B2DB08C950026CF49 /* Persistence.swift */; };
@@ -37,6 +36,10 @@
 		ACBA1C202DB2E0AF0026CF49 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA1C1E2DB2E0AF0026CF49 /* VideoPlayerView.swift */; };
 		ACBA1C252DB2E8CC0026CF49 /* bike_animation.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = ACBA1C242DB2E8CC0026CF49 /* bike_animation.mp4 */; };
 		ACBA1C262DB2E8CC0026CF49 /* bike_animation.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = ACBA1C242DB2E8CC0026CF49 /* bike_animation.mp4 */; };
+		ACBA1C282DB2EF3A0026CF49 /* StatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA1C272DB2EF3A0026CF49 /* StatView.swift */; };
+		ACBA1C292DB2EF3A0026CF49 /* StatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA1C272DB2EF3A0026CF49 /* StatView.swift */; };
+		ACBA1C2B2DB2EF480026CF49 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA1C2A2DB2EF480026CF49 /* StatsView.swift */; };
+		ACBA1C2C2DB2EF480026CF49 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA1C2A2DB2EF480026CF49 /* StatsView.swift */; };
 		ACDEEB2F2DAF49C900001A20 /* commute_proApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB2E2DAF49C900001A20 /* commute_proApp.swift */; };
 		ACDEEB332DAF49CA00001A20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACDEEB322DAF49CA00001A20 /* Assets.xcassets */; };
 		ACDEEB362DAF49CA00001A20 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACDEEB352DAF49CA00001A20 /* Preview Assets.xcassets */; };
@@ -46,7 +49,6 @@
 		ACDEEB632DAF4A8500001A20 /* CommuteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB622DAF4A8500001A20 /* CommuteListView.swift */; };
 		ACDEEB762DAF4C3000001A20 /* CommuteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB752DAF4C3000001A20 /* CommuteDetailView.swift */; };
 		ACDEEB7B2DAF4C4800001A20 /* CommuteMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB7A2DAF4C4800001A20 /* CommuteMode.swift */; };
-		ACDEEB802DAF4C6000001A20 /* CommuteTimeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB7F2DAF4C6000001A20 /* CommuteTimeApp.swift */; };
 		ACDEEB912DAF4CD100001A20 /* NewCommuteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB902DAF4CD100001A20 /* NewCommuteView.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,14 +84,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		ACBA1BD02DB085AF0026CF49 /* commute_pro-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "commute_pro-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACBA1BD02DB085AF0026CF49 /* Commute Pro-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Commute Pro-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACBA1BD22DB085AF0026CF49 /* commute_pro_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commute_pro_iOSApp.swift; sourceTree = "<group>"; };
 		ACBA1BD42DB085AF0026CF49 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		ACBA1BD62DB085B00026CF49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACBA1BD92DB085B00026CF49 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		ACBA1BDF2DB085B10026CF49 /* commute_pro-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "commute_pro-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACBA1BDF2DB085B10026CF49 /* Commute Pro-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Commute Pro-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACBA1BE32DB085B10026CF49 /* commute_pro_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commute_pro_iOSTests.swift; sourceTree = "<group>"; };
-		ACBA1BE92DB085B10026CF49 /* commute_pro-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "commute_pro-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACBA1BE92DB085B10026CF49 /* Commute Pro-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Commute Pro-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACBA1BED2DB085B10026CF49 /* commute_pro_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commute_pro_iOSUITests.swift; sourceTree = "<group>"; };
 		ACBA1BEF2DB085B10026CF49 /* commute_pro_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commute_pro_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		ACBA1C092DB08C510026CF49 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -101,23 +103,24 @@
 		ACBA1C192DB29D6D0026CF49 /* FlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
 		ACBA1C1E2DB2E0AF0026CF49 /* VideoPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
 		ACBA1C242DB2E8CC0026CF49 /* bike_animation.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bike_animation.mp4; sourceTree = "<group>"; };
-		ACDEEB2B2DAF49C900001A20 /* commute_pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = commute_pro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACBA1C272DB2EF3A0026CF49 /* StatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatView.swift; sourceTree = "<group>"; };
+		ACBA1C2A2DB2EF480026CF49 /* StatsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		ACDEEB2B2DAF49C900001A20 /* Commute Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Commute Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACDEEB2E2DAF49C900001A20 /* commute_proApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commute_proApp.swift; sourceTree = "<group>"; };
 		ACDEEB322DAF49CA00001A20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACDEEB352DAF49CA00001A20 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		ACDEEB3A2DAF49CA00001A20 /* commute_pro.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = commute_pro.xcdatamodel; sourceTree = "<group>"; };
 		ACDEEB3C2DAF49CA00001A20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACDEEB3D2DAF49CA00001A20 /* commute_pro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = commute_pro.entitlements; sourceTree = "<group>"; };
-		ACDEEB422DAF49CA00001A20 /* commute_proTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = commute_proTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACDEEB422DAF49CA00001A20 /* Commute ProTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Commute ProTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACDEEB462DAF49CA00001A20 /* commute_proTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commute_proTests.swift; sourceTree = "<group>"; };
 		ACDEEB482DAF49CA00001A20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ACDEEB4D2DAF49CA00001A20 /* commute_proUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = commute_proUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACDEEB4D2DAF49CA00001A20 /* Commute ProUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Commute ProUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACDEEB512DAF49CA00001A20 /* commute_proUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commute_proUITests.swift; sourceTree = "<group>"; };
 		ACDEEB532DAF49CA00001A20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACDEEB622DAF4A8500001A20 /* CommuteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteListView.swift; sourceTree = "<group>"; };
 		ACDEEB752DAF4C3000001A20 /* CommuteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteDetailView.swift; sourceTree = "<group>"; };
 		ACDEEB7A2DAF4C4800001A20 /* CommuteMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteMode.swift; sourceTree = "<group>"; };
-		ACDEEB7F2DAF4C6000001A20 /* CommuteTimeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteTimeApp.swift; sourceTree = "<group>"; };
 		ACDEEB902DAF4CD100001A20 /* NewCommuteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommuteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -207,6 +210,8 @@
 		ACBA1C022DB089BC0026CF49 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				ACBA1C2A2DB2EF480026CF49 /* StatsView.swift */,
+				ACBA1C272DB2EF3A0026CF49 /* StatView.swift */,
 				ACBA1C1E2DB2E0AF0026CF49 /* VideoPlayerView.swift */,
 				ACBA1C1C2DB2E0510026CF49 /* Assets */,
 				ACBA1C192DB29D6D0026CF49 /* FlowLayout.swift */,
@@ -217,7 +222,6 @@
 				ACDEEB752DAF4C3000001A20 /* CommuteDetailView.swift */,
 				ACDEEB7A2DAF4C4800001A20 /* CommuteMode.swift */,
 				ACDEEB392DAF49CA00001A20 /* commute_pro.xcdatamodeld */,
-				ACDEEB7F2DAF4C6000001A20 /* CommuteTimeApp.swift */,
 				ACDEEB902DAF4CD100001A20 /* NewCommuteView.swift */,
 			);
 			path = Shared;
@@ -256,12 +260,12 @@
 		ACDEEB2C2DAF49C900001A20 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ACDEEB2B2DAF49C900001A20 /* commute_pro.app */,
-				ACDEEB422DAF49CA00001A20 /* commute_proTests.xctest */,
-				ACDEEB4D2DAF49CA00001A20 /* commute_proUITests.xctest */,
-				ACBA1BD02DB085AF0026CF49 /* commute_pro-iOS.app */,
-				ACBA1BDF2DB085B10026CF49 /* commute_pro-iOSTests.xctest */,
-				ACBA1BE92DB085B10026CF49 /* commute_pro-iOSUITests.xctest */,
+				ACDEEB2B2DAF49C900001A20 /* Commute Pro.app */,
+				ACDEEB422DAF49CA00001A20 /* Commute ProTests.xctest */,
+				ACDEEB4D2DAF49CA00001A20 /* Commute ProUITests.xctest */,
+				ACBA1BD02DB085AF0026CF49 /* Commute Pro-iOS.app */,
+				ACBA1BDF2DB085B10026CF49 /* Commute Pro-iOSTests.xctest */,
+				ACBA1BE92DB085B10026CF49 /* Commute Pro-iOSUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -309,9 +313,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		ACBA1BCF2DB085AF0026CF49 /* commute_pro-iOS */ = {
+		ACBA1BCF2DB085AF0026CF49 /* Commute Pro-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ACBA1BF12DB085B10026CF49 /* Build configuration list for PBXNativeTarget "commute_pro-iOS" */;
+			buildConfigurationList = ACBA1BF12DB085B10026CF49 /* Build configuration list for PBXNativeTarget "Commute Pro-iOS" */;
 			buildPhases = (
 				ACBA1BCC2DB085AF0026CF49 /* Sources */,
 				ACBA1BCD2DB085AF0026CF49 /* Frameworks */,
@@ -321,14 +325,14 @@
 			);
 			dependencies = (
 			);
-			name = "commute_pro-iOS";
+			name = "Commute Pro-iOS";
 			productName = "commute_pro-iOS";
-			productReference = ACBA1BD02DB085AF0026CF49 /* commute_pro-iOS.app */;
+			productReference = ACBA1BD02DB085AF0026CF49 /* Commute Pro-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		ACBA1BDE2DB085B10026CF49 /* commute_pro-iOSTests */ = {
+		ACBA1BDE2DB085B10026CF49 /* Commute Pro-iOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ACBA1BF42DB085B10026CF49 /* Build configuration list for PBXNativeTarget "commute_pro-iOSTests" */;
+			buildConfigurationList = ACBA1BF42DB085B10026CF49 /* Build configuration list for PBXNativeTarget "Commute Pro-iOSTests" */;
 			buildPhases = (
 				ACBA1BDB2DB085B10026CF49 /* Sources */,
 				ACBA1BDC2DB085B10026CF49 /* Frameworks */,
@@ -339,14 +343,14 @@
 			dependencies = (
 				ACBA1BE12DB085B10026CF49 /* PBXTargetDependency */,
 			);
-			name = "commute_pro-iOSTests";
+			name = "Commute Pro-iOSTests";
 			productName = "commute_pro-iOSTests";
-			productReference = ACBA1BDF2DB085B10026CF49 /* commute_pro-iOSTests.xctest */;
+			productReference = ACBA1BDF2DB085B10026CF49 /* Commute Pro-iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		ACBA1BE82DB085B10026CF49 /* commute_pro-iOSUITests */ = {
+		ACBA1BE82DB085B10026CF49 /* Commute Pro-iOSUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ACBA1BF72DB085B10026CF49 /* Build configuration list for PBXNativeTarget "commute_pro-iOSUITests" */;
+			buildConfigurationList = ACBA1BF72DB085B10026CF49 /* Build configuration list for PBXNativeTarget "Commute Pro-iOSUITests" */;
 			buildPhases = (
 				ACBA1BE52DB085B10026CF49 /* Sources */,
 				ACBA1BE62DB085B10026CF49 /* Frameworks */,
@@ -357,14 +361,14 @@
 			dependencies = (
 				ACBA1BEB2DB085B10026CF49 /* PBXTargetDependency */,
 			);
-			name = "commute_pro-iOSUITests";
+			name = "Commute Pro-iOSUITests";
 			productName = "commute_pro-iOSUITests";
-			productReference = ACBA1BE92DB085B10026CF49 /* commute_pro-iOSUITests.xctest */;
+			productReference = ACBA1BE92DB085B10026CF49 /* Commute Pro-iOSUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		ACDEEB2A2DAF49C900001A20 /* commute_pro */ = {
+		ACDEEB2A2DAF49C900001A20 /* Commute Pro */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ACDEEB562DAF49CA00001A20 /* Build configuration list for PBXNativeTarget "commute_pro" */;
+			buildConfigurationList = ACDEEB562DAF49CA00001A20 /* Build configuration list for PBXNativeTarget "Commute Pro" */;
 			buildPhases = (
 				ACDEEB272DAF49C900001A20 /* Sources */,
 				ACDEEB282DAF49C900001A20 /* Frameworks */,
@@ -374,14 +378,14 @@
 			);
 			dependencies = (
 			);
-			name = commute_pro;
+			name = "Commute Pro";
 			productName = commute_pro;
-			productReference = ACDEEB2B2DAF49C900001A20 /* commute_pro.app */;
+			productReference = ACDEEB2B2DAF49C900001A20 /* Commute Pro.app */;
 			productType = "com.apple.product-type.application";
 		};
-		ACDEEB412DAF49CA00001A20 /* commute_proTests */ = {
+		ACDEEB412DAF49CA00001A20 /* Commute ProTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ACDEEB592DAF49CA00001A20 /* Build configuration list for PBXNativeTarget "commute_proTests" */;
+			buildConfigurationList = ACDEEB592DAF49CA00001A20 /* Build configuration list for PBXNativeTarget "Commute ProTests" */;
 			buildPhases = (
 				ACDEEB3E2DAF49CA00001A20 /* Sources */,
 				ACDEEB3F2DAF49CA00001A20 /* Frameworks */,
@@ -392,14 +396,14 @@
 			dependencies = (
 				ACDEEB442DAF49CA00001A20 /* PBXTargetDependency */,
 			);
-			name = commute_proTests;
+			name = "Commute ProTests";
 			productName = commute_proTests;
-			productReference = ACDEEB422DAF49CA00001A20 /* commute_proTests.xctest */;
+			productReference = ACDEEB422DAF49CA00001A20 /* Commute ProTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		ACDEEB4C2DAF49CA00001A20 /* commute_proUITests */ = {
+		ACDEEB4C2DAF49CA00001A20 /* Commute ProUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ACDEEB5C2DAF49CA00001A20 /* Build configuration list for PBXNativeTarget "commute_proUITests" */;
+			buildConfigurationList = ACDEEB5C2DAF49CA00001A20 /* Build configuration list for PBXNativeTarget "Commute ProUITests" */;
 			buildPhases = (
 				ACDEEB492DAF49CA00001A20 /* Sources */,
 				ACDEEB4A2DAF49CA00001A20 /* Frameworks */,
@@ -410,9 +414,9 @@
 			dependencies = (
 				ACDEEB4F2DAF49CA00001A20 /* PBXTargetDependency */,
 			);
-			name = commute_proUITests;
+			name = "Commute ProUITests";
 			productName = commute_proUITests;
-			productReference = ACDEEB4D2DAF49CA00001A20 /* commute_proUITests.xctest */;
+			productReference = ACDEEB4D2DAF49CA00001A20 /* Commute ProUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -448,7 +452,7 @@
 					};
 				};
 			};
-			buildConfigurationList = ACDEEB262DAF49C900001A20 /* Build configuration list for PBXProject "commute_pro" */;
+			buildConfigurationList = ACDEEB262DAF49C900001A20 /* Build configuration list for PBXProject "Commute Pro" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -461,12 +465,12 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				ACDEEB2A2DAF49C900001A20 /* commute_pro */,
-				ACDEEB412DAF49CA00001A20 /* commute_proTests */,
-				ACDEEB4C2DAF49CA00001A20 /* commute_proUITests */,
-				ACBA1BCF2DB085AF0026CF49 /* commute_pro-iOS */,
-				ACBA1BDE2DB085B10026CF49 /* commute_pro-iOSTests */,
-				ACBA1BE82DB085B10026CF49 /* commute_pro-iOSUITests */,
+				ACDEEB2A2DAF49C900001A20 /* Commute Pro */,
+				ACDEEB412DAF49CA00001A20 /* Commute ProTests */,
+				ACDEEB4C2DAF49CA00001A20 /* Commute ProUITests */,
+				ACBA1BCF2DB085AF0026CF49 /* Commute Pro-iOS */,
+				ACBA1BDE2DB085B10026CF49 /* Commute Pro-iOSTests */,
+				ACBA1BE82DB085B10026CF49 /* Commute Pro-iOSUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -529,9 +533,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACBA1C292DB2EF3A0026CF49 /* StatView.swift in Sources */,
 				ACBA1C042DB08A150026CF49 /* CommuteDetailView.swift in Sources */,
 				ACBA1C182DB29D520026CF49 /* AppErrors.swift in Sources */,
-				ACBA1C062DB08A1C0026CF49 /* CommuteTimeApp.swift in Sources */,
 				ACBA1BD52DB085AF0026CF49 /* ContentView.swift in Sources */,
 				ACBA1BFA2DB086420026CF49 /* commute_pro.xcdatamodeld in Sources */,
 				ACBA1C1B2DB29D6D0026CF49 /* FlowLayout.swift in Sources */,
@@ -540,6 +544,7 @@
 				ACBA1C002DB0866C0026CF49 /* commute_proApp.swift in Sources */,
 				ACBA1C052DB08A180026CF49 /* CommuteMode.swift in Sources */,
 				ACBA1C032DB08A100026CF49 /* CommuteListView.swift in Sources */,
+				ACBA1C2C2DB2EF480026CF49 /* StatsView.swift in Sources */,
 				ACBA1C152DB29D010026CF49 /* ErrorHandling.swift in Sources */,
 				ACBA1BD32DB085AF0026CF49 /* commute_pro_iOSApp.swift in Sources */,
 				ACBA1C0C2DB08C950026CF49 /* Persistence.swift in Sources */,
@@ -574,10 +579,11 @@
 				ACBA1C0A2DB08C510026CF49 /* Persistence.swift in Sources */,
 				ACBA1C172DB29D520026CF49 /* AppErrors.swift in Sources */,
 				ACDEEB7B2DAF4C4800001A20 /* CommuteMode.swift in Sources */,
-				ACDEEB802DAF4C6000001A20 /* CommuteTimeApp.swift in Sources */,
 				ACDEEB762DAF4C3000001A20 /* CommuteDetailView.swift in Sources */,
+				ACBA1C282DB2EF3A0026CF49 /* StatView.swift in Sources */,
 				ACDEEB3B2DAF49CA00001A20 /* commute_pro.xcdatamodeld in Sources */,
 				ACBA1C142DB29D010026CF49 /* ErrorHandling.swift in Sources */,
+				ACBA1C2B2DB2EF480026CF49 /* StatsView.swift in Sources */,
 				ACDEEB2F2DAF49C900001A20 /* commute_proApp.swift in Sources */,
 				ACBA1C1F2DB2E0AF0026CF49 /* VideoPlayerView.swift in Sources */,
 				ACDEEB912DAF4CD100001A20 /* NewCommuteView.swift in Sources */,
@@ -605,22 +611,22 @@
 /* Begin PBXTargetDependency section */
 		ACBA1BE12DB085B10026CF49 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = ACBA1BCF2DB085AF0026CF49 /* commute_pro-iOS */;
+			target = ACBA1BCF2DB085AF0026CF49 /* Commute Pro-iOS */;
 			targetProxy = ACBA1BE02DB085B10026CF49 /* PBXContainerItemProxy */;
 		};
 		ACBA1BEB2DB085B10026CF49 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = ACBA1BCF2DB085AF0026CF49 /* commute_pro-iOS */;
+			target = ACBA1BCF2DB085AF0026CF49 /* Commute Pro-iOS */;
 			targetProxy = ACBA1BEA2DB085B10026CF49 /* PBXContainerItemProxy */;
 		};
 		ACDEEB442DAF49CA00001A20 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = ACDEEB2A2DAF49C900001A20 /* commute_pro */;
+			target = ACDEEB2A2DAF49C900001A20 /* Commute Pro */;
 			targetProxy = ACDEEB432DAF49CA00001A20 /* PBXContainerItemProxy */;
 		};
 		ACDEEB4F2DAF49CA00001A20 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = ACDEEB2A2DAF49C900001A20 /* commute_pro */;
+			target = ACDEEB2A2DAF49C900001A20 /* Commute Pro */;
 			targetProxy = ACDEEB4E2DAF49CA00001A20 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -720,7 +726,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/commute_pro-iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/commute_pro-iOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Commute Pro-iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Commute Pro-iOS";
 			};
 			name = Debug;
 		};
@@ -745,7 +751,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/commute_pro-iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/commute_pro-iOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Commute Pro-iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Commute Pro-iOS";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -976,7 +982,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "commute-pro.commute-proTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/commute_pro.app/Contents/MacOS/commute_pro";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Commute Pro.app/Contents/MacOS/Commute Pro";
 			};
 			name = Debug;
 		};
@@ -997,7 +1003,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "commute-pro.commute-proTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/commute_pro.app/Contents/MacOS/commute_pro";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Commute Pro.app/Contents/MacOS/Commute Pro";
 			};
 			name = Release;
 		};
@@ -1042,7 +1048,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		ACBA1BF12DB085B10026CF49 /* Build configuration list for PBXNativeTarget "commute_pro-iOS" */ = {
+		ACBA1BF12DB085B10026CF49 /* Build configuration list for PBXNativeTarget "Commute Pro-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ACBA1BF22DB085B10026CF49 /* Debug */,
@@ -1051,7 +1057,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ACBA1BF42DB085B10026CF49 /* Build configuration list for PBXNativeTarget "commute_pro-iOSTests" */ = {
+		ACBA1BF42DB085B10026CF49 /* Build configuration list for PBXNativeTarget "Commute Pro-iOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ACBA1BF52DB085B10026CF49 /* Debug */,
@@ -1060,7 +1066,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ACBA1BF72DB085B10026CF49 /* Build configuration list for PBXNativeTarget "commute_pro-iOSUITests" */ = {
+		ACBA1BF72DB085B10026CF49 /* Build configuration list for PBXNativeTarget "Commute Pro-iOSUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ACBA1BF82DB085B10026CF49 /* Debug */,
@@ -1069,7 +1075,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ACDEEB262DAF49C900001A20 /* Build configuration list for PBXProject "commute_pro" */ = {
+		ACDEEB262DAF49C900001A20 /* Build configuration list for PBXProject "Commute Pro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ACDEEB542DAF49CA00001A20 /* Debug */,
@@ -1078,7 +1084,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ACDEEB562DAF49CA00001A20 /* Build configuration list for PBXNativeTarget "commute_pro" */ = {
+		ACDEEB562DAF49CA00001A20 /* Build configuration list for PBXNativeTarget "Commute Pro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ACDEEB572DAF49CA00001A20 /* Debug */,
@@ -1087,7 +1093,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ACDEEB592DAF49CA00001A20 /* Build configuration list for PBXNativeTarget "commute_proTests" */ = {
+		ACDEEB592DAF49CA00001A20 /* Build configuration list for PBXNativeTarget "Commute ProTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ACDEEB5A2DAF49CA00001A20 /* Debug */,
@@ -1096,7 +1102,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ACDEEB5C2DAF49CA00001A20 /* Build configuration list for PBXNativeTarget "commute_proUITests" */ = {
+		ACDEEB5C2DAF49CA00001A20 /* Build configuration list for PBXNativeTarget "Commute ProUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ACDEEB5D2DAF49CA00001A20 /* Debug */,

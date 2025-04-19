@@ -28,6 +28,21 @@ struct PastCommutesView: View {
         sessions.map { $0.duration }.min() ?? 0
     }
     
+    var bestSession: Session? {
+        sessions.min(by: { $0.duration < $1.duration })
+    }
+    
+    var bestModeEmoji: String {
+        guard let mode = bestSession?.mode?.lowercased() else { return "" }
+        switch mode {
+        case "subway": return "🚇"
+        case "run": return "🏃‍♀️"
+        case "bike": return "🚴"
+        case "bike + subway": return "🚴"
+        default: return ""
+        }
+    }
+    
     private var backgroundColor: Color {
         #if os(macOS)
         Color(NSColor.windowBackgroundColor).opacity(0.5)
@@ -68,12 +83,16 @@ struct PastCommutesView: View {
                                     .frame(width: 30)
                                 
                                 VStack(alignment: .leading) {
-                                    Text(timeString(from: session.duration))
-                                        .font(.headline)
-                                    if let date = session.date {
-                                        Text(dateFormatter.string(from: date))
-                                            .font(.subheadline)
-                                            .foregroundStyle(.secondary)
+                                    HStack {
+                                        Text(timeString(from: session.duration))
+                                            .font(.headline)
+                                        if let date = session.date {
+                                            Text("•")
+                                                .foregroundStyle(.secondary)
+                                            Text(dateFormatter.string(from: date))
+                                                .font(.subheadline)
+                                                .foregroundStyle(.secondary)
+                                        }
                                     }
                                 }
                                 
@@ -130,8 +149,8 @@ struct PastCommutesView: View {
     
     var dateFormatter: DateFormatter {
         let df = DateFormatter()
-        df.dateStyle = .short
-        df.timeStyle = .short
+        df.dateStyle = .medium
+        df.timeStyle = .none
         return df
     }
 } 

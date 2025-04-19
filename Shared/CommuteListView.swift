@@ -3,6 +3,8 @@ import SwiftUI
 struct CommuteListView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @StateObject private var errorHandler = ErrorHandlingViewModel()
+    @State private var isEditing = false
+    @State private var commuteToDelete: Commute?
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Commute.name, ascending: true)],
@@ -33,9 +35,9 @@ struct CommuteListView: View {
                         .padding(.vertical, 4)
                     }
                 }
-                .onDelete(perform: deleteCommutes)
+                .onDelete(perform: confirmDelete)
             }
-            .navigationTitle("My Commutes")
+            .navigationTitle("Commutes")
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Button(action: { showingNewCommute = true }) {
@@ -43,19 +45,50 @@ struct CommuteListView: View {
                             .font(.title3)
                     }
                 }
-            }
-            .sheet(isPresented: $showingNewCommute) {
-                NavigationView {
-                    NewCommuteView()
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: { isEditing.toggle() }) {
+                        Text(isEditing ? "Done" : "Edit")
+                    }
                 }
+            }
+            .environment(\.editMode, .constant(isEditing ? .active : .inactive))
+            .confirmationDialog(
+                "Are you sure you want to delete this commute?",
+                isPresented: Binding(
+                    get: { commuteToDelete != nil },
+                    set: { if !$0 { commuteToDelete = nil } }
+                ),
+                titleVisibility: .visible
+            ) {
+                Button("Delete", role: .destructive) {
+                    if let commute = commuteToDelete {
+                        deleteCommute(commute)
+                    }
+                    commuteToDelete = nil
+                }
+                Button("Cancel", role: .cancel) {
+                    commuteToDelete = nil
+                }
+            } message: {
+                Text("This will delete all associated sessions and cannot be undone.")
+            }
+            
+            NavigationView {
+                NewCommuteView()
             }
         }
         .handleErrors(errorHandler)
     }
     
-    private func deleteCommutes(offsets: IndexSet) {
+    private func confirmDelete(at offsets: IndexSet) {
+        if let index = offsets.first {
+            commuteToDelete = commutes[index]
+        }
+    }
+    
+    private func deleteCommute(_ commute: Commute) {
         withAnimation {
-            offsets.map { commutes[$0] }.forEach(viewContext.delete)
+            viewContext.delete(commute)
             do {
                 try viewContext.save()
             } catch {
@@ -74,3 +107,4 @@ struct CommuteListView: View {
         }
     }
 }
+

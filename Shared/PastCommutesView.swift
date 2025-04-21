@@ -6,6 +6,12 @@ struct PastCommutesView: View {
     @StateObject private var errorHandler = ErrorHandlingViewModel()
     let commute: Commute
     
+    @State private var showingManualEntry = false
+    @State private var selectedHours = 0
+    @State private var selectedMinutes = 0
+    @State private var selectedSeconds = 0
+    @State private var selectedDate = Date()
+    
     // Force view to update when sessions change
     @FetchRequest var sessions: FetchedResults<Session>
     
@@ -55,9 +61,18 @@ struct PastCommutesView: View {
                 
                 // Past Commutes Section
                 VStack(alignment: .leading, spacing: 12) {
-                    Text("Past Commutes")
-                        .font(.title3)
-                        .fontWeight(.semibold)
+                    HStack {
+                        Text("Past Commutes")
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                        
+                        Spacer()
+                        
+                        Button(action: { showingManualEntry = true }) {
+                            Image(systemName: "plus.circle.fill")
+                                .font(.title3)
+                        }
+                    }
                     
                     LazyVStack(spacing: 12) {
                         ForEach(sessions, id: \.self) { session in
@@ -98,6 +113,61 @@ struct PastCommutesView: View {
         }
         .navigationTitle("Stats")
         .handleErrors(errorHandler)
+        .sheet(isPresented: $showingManualEntry) {
+            NavigationView {
+                Form {
+                    Section(header: Text("Time")) {
+                        HStack {
+                            Picker("Hours", selection: $selectedHours) {
+                                ForEach(0..<24) { hour in
+                                    Text("\(hour)h").tag(hour)
+                                }
+                            }
+                            .pickerStyle(.wheel)
+                            .frame(width: 100)
+                            
+                            Picker("Minutes", selection: $selectedMinutes) {
+                                ForEach(0..<60) { minute in
+                                    Text("\(minute)m").tag(minute)
+                                }
+                            }
+                            .pickerStyle(.wheel)
+                            .frame(width: 100)
+                            
+                            Picker("Seconds", selection: $selectedSeconds) {
+                                ForEach(0..<60) { second in
+                                    Text("\(second)s").tag(second)
+                                }
+                            }
+                            .pickerStyle(.wheel)
+                            .frame(width: 100)
+                        }
+                        .padding(.vertical)
+                    }
+                    
+                    Section(header: Text("Date")) {
+                        DatePicker("Date", selection: $selectedDate, displayedComponents: [.date])
+                    }
+                }
+                .navigationTitle("Add Manual Time")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button("Cancel") {
+                            showingManualEntry = false
+                        }
+                    }
+                    ToolbarItem(placement: .confirmationAction) {
+                        Button("Add") {
+                            addManualEntry()
+                        }
+                    }
+                }
+            }
+            #if os(macOS)
+            .frame(minWidth: 300, minHeight: 400)
+            #endif
+        }
     }
     
     private func deleteSession(_ session: Session) {
@@ -108,6 +178,26 @@ struct PastCommutesView: View {
             } catch {
                 errorHandler.handle(error)
             }
+        }
+    }
+    
+    private func addManualEntry() {
+        let duration = TimeInterval(selectedHours * 3600 + selectedMinutes * 60 + selectedSeconds)
+        let session = Session(context: viewContext)
+        session.id = UUID()
+        session.date = selectedDate
+        session.duration = duration
+        session.mode = commute.mode
+        session.commute = commute
+        
+        do {
+            try viewContext.save()
+            showingManualEntry = false
+            selectedHours = 0
+            selectedMinutes = 0
+            selectedSeconds = 0
+        } catch {
+            errorHandler.handle(error)
         }
     }
     
@@ -131,7 +221,7 @@ struct PastCommutesView: View {
     var dateFormatter: DateFormatter {
         let df = DateFormatter()
         df.dateStyle = .short
-        df.timeStyle = .short
+        df.timeStyle = .none
         return df
     }
 } 

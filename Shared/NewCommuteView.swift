@@ -6,7 +6,6 @@ struct NewCommuteView: View {
     @StateObject private var errorHandler = ErrorHandlingViewModel()
     
     @State private var name = ""
-    @State private var mode = CommuteMode.subway
     
     private var capitalizedNameBinding: Binding<String> {
         Binding(
@@ -24,33 +23,6 @@ struct NewCommuteView: View {
             List {
                 Section(header: Text("Commute Details")) {
                     TextField("Name", text: capitalizedNameBinding)
-                }
-                
-                Section(header: Text("Transportation")) {
-                    Menu {
-                        Picker("Transportation Mode", selection: $mode) {
-                            ForEach(CommuteMode.allCases) { option in
-                                Label {
-                                    Text(option.rawValue.capitalized)
-                                } icon: {
-                                    Image(systemName: modeIcon(for: option.rawValue))
-                                }
-                                .tag(option)
-                            }
-                        }
-                    } label: {
-                        HStack {
-                            Label {
-                                Text(mode.rawValue.capitalized)
-                            } icon: {
-                                Image(systemName: modeIcon(for: mode.rawValue))
-                            }
-                            Spacer()
-                            Image(systemName: "chevron.up.chevron.down")
-                                .foregroundStyle(.secondary)
-                        }
-                        .padding(.vertical, 4)
-                    }
                 }
             }
             #if os(macOS)
@@ -86,23 +58,13 @@ struct NewCommuteView: View {
     private func saveCommute() {
         let newCommute = Commute(context: viewContext)
         newCommute.name = name
-        newCommute.mode = mode.rawValue
+        newCommute.mode = CommuteMode.subway.rawValue // Default to subway mode
         
         do {
             try viewContext.save()
             dismiss()
         } catch {
             errorHandler.handle(error)
-        }
-    }
-    
-    private func modeIcon(for mode: String) -> String {
-        switch mode.lowercased() {
-        case "walk": return "figure.walk"
-        case "bike": return "bicycle"
-        case "run": return "figure.run"
-        case "subway": return "tram.fill"
-        default: return "figure.walk"
         }
     }
 }

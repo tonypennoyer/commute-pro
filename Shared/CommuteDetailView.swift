@@ -68,18 +68,10 @@ struct CommuteDetailView: View {
                 Spacer()
                 
                 ZStack(alignment: .center) {
-                    if isRunning && selectedMode == .bike {
-                        VideoPlayerView(videoName: "hell yeeeeeeah", videoExtension: "mp4")
-                            .frame(width: 200, height: 120)
-                            .offset(y: -130)
-                            .transition(.opacity)
-                    }
-                    
                     VStack(spacing: 24) {
                         Text(timeString(from: elapsedTime))
                             .font(.system(size: 84, weight: .medium, design: .monospaced))
                             .monospacedDigit()
-                            .padding(.top, isRunning && selectedMode == .bike ? 40 : 0)
                         
                         HStack(spacing: 20) {
                             if showingSubmitButton {

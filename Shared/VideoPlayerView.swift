@@ -58,27 +58,41 @@ struct VideoPlayerView: View {
     }
     
     var body: some View {
-        VideoPlayer(player: player)
-            .background(Color.white)
-            .onAppear {
-                setupPlayer()
-            }
-            .onDisappear {
-                player?.pause()
-                player = nil
-            }
+        GeometryReader { geometry in
+            VideoPlayer(player: player, videoGravity: videoGravity)
+                .frame(width: geometry.size.width, height: geometry.size.height)
+                .background(Color.black.opacity(0.1))
+                .onAppear {
+                    setupPlayer()
+                }
+                .onDisappear {
+                    player?.pause()
+                    player = nil
+                }
+        }
     }
     
     private func setupPlayer() {
         guard let url = Bundle.main.url(forResource: videoName, withExtension: videoExtension) else {
-            print("Could not find video: \(videoName).\(videoExtension)")
+            print("❌ Could not find video: \(videoName).\(videoExtension)")
+            // Debug print bundle contents
+            if let resourcePath = Bundle.main.resourcePath {
+                do {
+                    let contents = try FileManager.default.contentsOfDirectory(atPath: resourcePath)
+                    print("📦 Bundle contents: \(contents)")
+                } catch {
+                    print("Failed to list bundle contents: \(error)")
+                }
+            }
             return
         }
         
+        print("✅ Found video at: \(url)")
         let player = AVPlayer(url: url)
         
         // Set up observer
         observer.observe(player: player) {
+            print("🎬 Video is ready to play")
             isReady = true
         }
         
@@ -88,12 +102,14 @@ struct VideoPlayerView: View {
                 object: player.currentItem,
                 queue: .main
             ) { _ in
+                print("🔄 Video finished, looping...")
                 player.seek(to: .zero)
                 player.play()
             }
         }
         
         self.player = player
+        print("▶️ Starting video playback...")
         player.play()
     }
 }

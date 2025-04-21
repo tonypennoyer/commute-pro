@@ -46,6 +46,8 @@
 		ACDEEB7B2DAF4C4800001A20 /* CommuteMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB7A2DAF4C4800001A20 /* CommuteMode.swift */; };
 		ACDEEB802DAF4C6000001A20 /* CommuteTimeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB7F2DAF4C6000001A20 /* CommuteTimeApp.swift */; };
 		ACDEEB912DAF4CD100001A20 /* NewCommuteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEEB902DAF4CD100001A20 /* NewCommuteView.swift */; };
+		ACFFDE482DB6820C004713F8 /* commute_pro_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ACFFDE472DB6820C004713F8 /* commute_pro_icon.png */; };
+		ACFFDE492DB6820C004713F8 /* commute_pro_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ACFFDE472DB6820C004713F8 /* commute_pro_icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,7 @@
 		ACDEEB7A2DAF4C4800001A20 /* CommuteMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteMode.swift; sourceTree = "<group>"; };
 		ACDEEB7F2DAF4C6000001A20 /* CommuteTimeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuteTimeApp.swift; sourceTree = "<group>"; };
 		ACDEEB902DAF4CD100001A20 /* NewCommuteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommuteView.swift; sourceTree = "<group>"; };
+		ACFFDE472DB6820C004713F8 /* commute_pro_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = commute_pro_icon.png; path = ../../../../../../Desktop/commute_pro_icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +225,7 @@
 		ACBA1C1C2DB2E0510026CF49 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				ACFFDE402DB6817C004713F8 /* Icons */,
 				ACBA1C1D2DB2E0510026CF49 /* Videos */,
 			);
 			path = Assets;
@@ -300,6 +304,14 @@
 				ACDEEB532DAF49CA00001A20 /* Info.plist */,
 			);
 			path = commute_proUITests;
+			sourceTree = "<group>";
+		};
+		ACFFDE402DB6817C004713F8 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				ACFFDE472DB6820C004713F8 /* commute_pro_icon.png */,
+			);
+			path = Icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -473,6 +485,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACBA1BDA2DB085B00026CF49 /* Preview Assets.xcassets in Resources */,
+				ACFFDE492DB6820C004713F8 /* commute_pro_icon.png in Resources */,
 				ACBA1C0F2DB092570026CF49 /* airhorn.mp3 in Resources */,
 				ACBA1BD72DB085B00026CF49 /* Assets.xcassets in Resources */,
 				ACBA1C262DB2E8CC0026CF49 /* bike_animation.mp4 in Resources */,
@@ -498,6 +511,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACDEEB362DAF49CA00001A20 /* Preview Assets.xcassets in Resources */,
+				ACFFDE482DB6820C004713F8 /* commute_pro_icon.png in Resources */,
 				ACBA1C0E2DB092570026CF49 /* airhorn.mp3 in Resources */,
 				ACDEEB332DAF49CA00001A20 /* Assets.xcassets in Resources */,
 				ACBA1C252DB2E8CC0026CF49 /* bike_animation.mp4 in Resources */,
